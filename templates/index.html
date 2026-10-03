@@ -1,0 +1,347 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AgriVision Turmeric Inspector - Erode & Perundurai Leaf Health</title>
+  <meta name="description" content="AI turmeric leaf disease detection and TNAU agronomic treatment guidance for farmers in Tamil Nadu.">
+
+  <!-- Google Fonts: Bricolage Grotesque & Source Sans 3 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Source+Sans+3:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}?v=2.2">
+</head>
+<body>
+  <!-- Accessible Skip Link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Top App Navigation / Header -->
+  <header class="app-header" role="banner">
+    <div class="header-inner container">
+      
+      <div class="header-brand">
+        <div class="brand-logo" aria-hidden="true">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22a9 9 0 0 0 9-9c0-4.97-4.03-9-9-9s-9 4.03-9 9a9 9 0 0 0 9 9Z"/>
+            <path d="M12 4v18"/>
+            <path d="M7 9c2 1 3 3 5 3"/>
+            <path d="M17 15c-2-1-3-3-5-3"/>
+          </svg>
+        </div>
+        <div>
+          <h1 class="brand-title">AgriVision Turmeric Inspector</h1>
+          <p class="brand-subtitle">Erode &amp; Perundurai Agricultural Leaf Health Advisory</p>
+        </div>
+      </div>
+
+      <div class="header-actions">
+        <!-- Language Switcher: English / Tamil -->
+        <div class="lang-switch" role="group" aria-label="Language selection">
+          <button type="button" id="btn-lang-en" class="btn-lang active" aria-pressed="true">English</button>
+          <button type="button" id="btn-lang-ta" class="btn-lang" aria-pressed="false">தமிழ்</button>
+        </div>
+
+        <!-- Dark Mode Toggle -->
+        <button id="theme-toggle" class="btn-theme-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+          <span class="theme-icon light-icon" aria-hidden="true">🌙</span>
+          <span class="theme-icon dark-icon" aria-hidden="true">☀️</span>
+        </button>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- Main Two-Column Container -->
+  <main id="main-content" class="main-layout container">
+
+    <!-- LEFT COLUMN: Photo Upload & Recent Scans -->
+    <div class="left-column">
+      
+      <!-- Upload Card -->
+      <section class="card upload-card" aria-labelledby="upload-heading">
+        <h2 id="upload-heading" class="card-heading">Your leaf photo</h2>
+        <p class="card-hint">Upload a single turmeric leaf photo under 5 MB taken in daylight.</p>
+
+        <!-- Drop Zone & Camera Box -->
+        <div id="drop-zone" class="drop-zone" tabindex="0" role="button" aria-controls="file-input" aria-label="Choose or take a photo of a turmeric leaf">
+          <input type="file" id="file-input" name="image" accept="image/jpeg,image/png,image/webp,image/jpg" class="file-input-hidden">
+
+          <!-- Initial Prompt -->
+          <div id="drop-prompt" class="drop-prompt">
+            <div class="upload-icon" aria-hidden="true">
+              <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="17 8 12 3 7 8"/>
+                <line x1="12" y1="3" x2="12" y2="15"/>
+              </svg>
+            </div>
+            <span class="upload-title">Tap to choose or drag &amp; drop leaf photo</span>
+            <span class="upload-sub">Supports JPG, PNG, WEBP (Max 5 MB)</span>
+
+            <!-- Dedicated Mobile Camera Button -->
+            <button type="button" id="btn-camera" class="btn btn-camera-trigger" aria-label="Take photo with mobile camera">
+              <span aria-hidden="true">📷</span> Take photo
+            </button>
+          </div>
+
+          <!-- Preview Wrapper with Scanline Effect -->
+          <div id="preview-wrapper" class="preview-wrapper" hidden>
+            <div class="preview-container">
+              <img id="image-preview" src="#" alt="Selected turmeric leaf" class="image-preview">
+              <!-- Scanline animation overlay during analysis -->
+              <div id="scanline" class="scanline" hidden aria-hidden="true"></div>
+            </div>
+            
+            <div class="preview-controls">
+              <button type="button" id="btn-replace-image" class="btn btn-secondary btn-sm">Replace</button>
+              <button type="button" id="btn-remove-image" class="btn btn-danger btn-sm">Remove</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Progress Steps (Shown while analyzing) -->
+        <div id="analysis-steps" class="analysis-steps" hidden aria-live="polite">
+          <div class="step-item" id="step-1">
+            <span class="step-indicator">1</span>
+            <span class="step-label">Uploading photo</span>
+          </div>
+          <div class="step-item" id="step-2">
+            <span class="step-indicator">2</span>
+            <span class="step-label">Checking leaf (OpenCV)</span>
+          </div>
+          <div class="step-item" id="step-3">
+            <span class="step-indicator">3</span>
+            <span class="step-label">Detecting disease (MobileNetV2)</span>
+          </div>
+          <div class="step-item" id="step-4">
+            <span class="step-indicator">4</span>
+            <span class="step-label">Fetching TNAU agricultural info</span>
+          </div>
+        </div>
+
+        <!-- Submit Button -->
+        <div class="upload-actions">
+          <button type="button" id="btn-submit" class="btn btn-primary btn-large" disabled>
+            <span class="btn-spinner" id="btn-spinner" aria-hidden="true" hidden></span>
+            <span id="btn-text">Check this leaf</span>
+          </button>
+        </div>
+
+        <!-- Helpful Farmer Tip Box -->
+        <aside class="tip-card" aria-label="Photo guidelines">
+          <h3 class="tip-heading"><span class="tip-badge">Guide</span> Good leaf photo tips</h3>
+          <ul class="tip-list">
+            <li><strong>Single leaf:</strong> Focus on one turmeric leaf flat in the frame.</li>
+            <li><strong>Natural light:</strong> Use bright daylight without heavy shadows.</li>
+            <li><strong>Under 5 MB:</strong> Ensure sharp focus on spots and veins.</li>
+          </ul>
+        </aside>
+
+      </section>
+
+      <!-- Recent Scans Section (LocalStorage) -->
+      <section class="card recent-card" id="recent-scans-card" aria-labelledby="recent-heading">
+        <div class="recent-header">
+          <h2 id="recent-heading" class="card-subheading">Recent scans</h2>
+          <button type="button" id="btn-clear-history" class="btn-text-danger" title="Clear local scan history">Clear</button>
+        </div>
+        <div id="recent-list" class="recent-list" role="list">
+          <p class="recent-empty">No previous scans yet. Checked leaves will appear here.</p>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- RIGHT COLUMN: Result Card -->
+    <section id="result-card" class="card result-card" aria-labelledby="result-title" aria-live="polite">
+
+      <!-- 1. EMPTY STATE -->
+      <div id="state-empty" class="state-container state-empty">
+        <div class="state-icon" aria-hidden="true">🌱</div>
+        <h2 id="result-title" class="state-title">Result will appear here</h2>
+        <p class="state-desc">Select a turmeric leaf photo on the left and tap <strong>"Check this leaf"</strong>. The system will verify the crop, classify condition, measure affected area, and retrieve official TNAU solutions.</p>
+      </div>
+
+      <!-- 2. REJECTED / NOT A TURMERIC LEAF STATE -->
+      <div id="state-rejected" class="state-container state-rejected" hidden role="alert">
+        <div class="state-icon rejected-icon" aria-hidden="true">⚠️</div>
+        <h2 class="state-title state-title-rejected">This is not a turmeric leaf.</h2>
+        <p class="state-desc" id="rejected-message">Please upload a clear photo of a single turmeric leaf.</p>
+        <div class="rejected-guidance">
+          <p><strong>Verification checks:</strong></p>
+          <ul>
+            <li>File must be a valid image under 5 MB.</li>
+            <li>Must contain green, yellow, or brown turmeric leaf tissue.</li>
+            <li>Photos of roots, rhizomes, weeds, or non-crop objects are automatically rejected.</li>
+          </ul>
+        </div>
+        <button type="button" id="btn-retry-upload" class="btn btn-secondary">Upload another photo</button>
+      </div>
+
+      <!-- 3. CONFIRMED TURMERIC RESULT VIEW (Strict Top-to-Bottom Order) -->
+      <div id="state-result" class="result-body" hidden>
+
+        <!-- 1. Leaf check: "Turmeric leaf confirmed" tick -->
+        <div class="confirmed-badge" role="status">
+          <span class="tick-icon" aria-hidden="true">✓</span>
+          <span id="txt-leaf-confirmed" class="confirmed-text">Turmeric leaf confirmed</span>
+        </div>
+
+        <!-- Offline Information Indicator (if API offline fallback was used) -->
+        <div id="offline-banner" class="offline-banner" hidden role="status">
+          <span aria-hidden="true">ℹ️</span>
+          <span id="offline-note-text">Offline information from verified TNAU advisory database.</span>
+        </div>
+
+        <!-- 2. Disease name (large) + confidence ring + severity badge -->
+        <div class="diagnosis-header">
+          <div class="diagnosis-main">
+            <h2 id="res-disease-name" class="disease-title">Leaf Spot</h2>
+            <div class="badge-row">
+              <span id="res-severity-badge" class="badge badge-severity">Moderate</span>
+              <span id="res-crop-badge" class="badge badge-crop">Turmeric</span>
+            </div>
+          </div>
+
+          <!-- Animated Confidence Ring -->
+          <div class="confidence-ring-container" aria-label="Confidence percentage">
+            <svg class="confidence-ring" width="84" height="84" viewBox="0 0 84 84">
+              <circle class="ring-bg" cx="42" cy="42" r="34"/>
+              <circle id="ring-fill" class="ring-fill" cx="42" cy="42" r="34"/>
+            </svg>
+            <div class="ring-label">
+              <span id="res-confidence-num" class="ring-percent">88%</span>
+              <span class="ring-sub">Confidence</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 3. Causal organism -->
+        <div class="result-row info-box">
+          <span class="row-label" id="lbl-causal">Causal organism:</span>
+          <span id="res-causal-organism" class="row-value scientific-text">Colletotrichum capsici</span>
+        </div>
+
+        <!-- 4. Cause -->
+        <div class="result-row info-box">
+          <span class="row-label" id="lbl-cause">Cause:</span>
+          <p id="res-cause-text" class="row-text">A fungus that spreads by rain splash and wind. It thrives in humid weather and dense planting.</p>
+        </div>
+
+        <!-- 5. Symptoms (Collapsible Accordion) -->
+        <div class="accordion-item" id="acc-symptoms">
+          <button type="button" class="accordion-header" aria-expanded="false" aria-controls="acc-symptoms-body">
+            <span class="accordion-title" id="lbl-symptoms">Symptoms seen</span>
+            <span class="accordion-chevron" aria-hidden="true">▼</span>
+          </button>
+          <div id="acc-symptoms-body" class="accordion-body" hidden>
+            <ul id="res-symptoms-list" class="symptoms-list bullet-list">
+              <!-- Dynamically populated -->
+            </ul>
+          </div>
+        </div>
+
+        <!-- 6. Impact: affected leaf area % (OpenCV) and estimated yield loss (only if cited value exists) -->
+        <div class="impact-section">
+          <span class="row-label" id="lbl-impact">Impact assessment</span>
+          <div class="impact-grid">
+            
+            <!-- Affected Leaf Area (OpenCV) -->
+            <div class="impact-card">
+              <div class="impact-card-top">
+                <span class="impact-card-label" id="lbl-affected-area">Affected leaf area</span>
+                <span id="res-affected-pct" class="impact-card-value">18.4%</span>
+              </div>
+              <div class="bar-track">
+                <div id="res-affected-bar" class="bar-fill bar-fill-affected" style="width: 0%;"></div>
+              </div>
+              <p class="impact-card-note">Segmented from foliar lesions via OpenCV HSV analysis.</p>
+            </div>
+
+            <!-- Estimated Yield Loss (Shown ONLY if cited value exists, otherwise hidden) -->
+            <div class="impact-card" id="yield-loss-card" hidden>
+              <div class="impact-card-top">
+                <span class="impact-card-label" id="lbl-yield-loss">Estimated yield loss</span>
+                <span id="res-yield-value" class="impact-card-value">15% - 25%</span>
+              </div>
+              <div class="bar-track">
+                <div id="res-yield-bar" class="bar-fill bar-fill-yield" style="width: 20%;"></div>
+              </div>
+              <p class="impact-card-note" id="res-yield-note">Cited agronomic source value.</p>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- 7. Solution (Collapsible Accordion, OPEN BY DEFAULT, Numbered Treatment Steps) -->
+        <div class="accordion-item accordion-open" id="acc-solution">
+          <button type="button" class="accordion-header" aria-expanded="true" aria-controls="acc-solution-body">
+            <span class="accordion-title" id="lbl-solution">Solution (Treatment steps)</span>
+            <span class="accordion-chevron" aria-hidden="true">▲</span>
+          </button>
+          <div id="acc-solution-body" class="accordion-body">
+            <ol id="res-solution-list" class="solution-list numbered-list">
+              <!-- Dynamically populated -->
+            </ol>
+          </div>
+        </div>
+
+        <!-- 8. Prevention (Collapsible Accordion) -->
+        <div class="accordion-item" id="acc-prevention">
+          <button type="button" class="accordion-header" aria-expanded="false" aria-controls="acc-prevention-body">
+            <span class="accordion-title" id="lbl-prevention">Prevention</span>
+            <span class="accordion-chevron" aria-hidden="true">▼</span>
+          </button>
+          <div id="acc-prevention-body" class="accordion-body" hidden>
+            <ul id="res-prevention-list" class="prevention-list bullet-list">
+              <!-- Dynamically populated -->
+            </ul>
+          </div>
+        </div>
+
+        <!-- 9. Sources (links) and Advisory Note -->
+        <div class="sources-section">
+          <span class="row-label" id="lbl-sources">Authoritative sources:</span>
+          <ul id="res-sources-list" class="sources-links">
+            <!-- Dynamically populated -->
+          </ul>
+          
+          <div class="advisory-box">
+            <p id="res-advisory-note" class="advisory-text">For guidance only. Confirm treatment with your local agriculture officer.</p>
+          </div>
+        </div>
+
+        <!-- Bottom Action Buttons: PDF, Print, Scan Another -->
+        <div class="result-actions">
+          <button type="button" id="btn-download-pdf" class="btn btn-secondary">
+            <span aria-hidden="true">📄</span> Download report (PDF)
+          </button>
+          <button type="button" id="btn-print" class="btn btn-secondary">
+            <span aria-hidden="true">🖨️</span> Print
+          </button>
+          <button type="button" id="btn-scan-another" class="btn btn-primary">
+            Scan another leaf
+          </button>
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- Advisory Footer -->
+  <footer class="app-footer" role="contentinfo">
+    <div class="container footer-inner">
+      <p class="footer-note">AgriVision Turmeric Inspector &bull; Erode &amp; Perundurai Agricultural Technology Mini-Project</p>
+      <p class="footer-disclaimer">For guidance only. Confirm all chemical treatments with your local agricultural officer.</p>
+    </div>
+  </footer>
+
+  <!-- Application Script -->
+  <script src="{{ url_for('static', filename='script.js') }}?v=2.2"></script>
+</body>
+</html>

@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>AgriVision - {{ disease }} Diagnostic Result</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary-fixed-dim": "#96d5a3",
+            "tertiary": "#003a16",
+            "on-background": "#1b1c1a",
+            "surface-container": "#efeeea",
+            "on-secondary-container": "#6c4d00",
+            "secondary-fixed": "#ffdea5",
+            "secondary-fixed-dim": "#febb14",
+            "primary": "#003b1b",
+            "on-secondary": "#ffffff",
+            "on-error-container": "#93000a",
+            "outline": "#717970",
+            "surface-container-low": "#f5f3ef",
+            "on-primary-fixed": "#00210d",
+            "tertiary-fixed-dim": "#4ae176",
+            "tertiary-container": "#005422",
+            "surface-tint": "#2e6a41",
+            "surface-container-highest": "#e4e2de",
+            "inverse-surface": "#30312e",
+            "on-error": "#ffffff",
+            "surface": "#fbf9f5",
+            "surface-bright": "#fbf9f5",
+            "inverse-on-surface": "#f2f0ed",
+            "surface-dim": "#dbdad6",
+            "on-surface": "#1b1c1a",
+            "on-secondary-fixed": "#271900",
+            "on-surface-variant": "#404941",
+            "on-primary-fixed-variant": "#12512c",
+            "error": "#ba1a1a",
+            "on-primary-container": "#87c695",
+            "surface-container-high": "#eae8e4",
+            "surface-container-lowest": "#ffffff",
+            "secondary": "#7b5800",
+            "outline-variant": "#c0c9be",
+            "background": "#fbf9f5",
+            "error-container": "#ffdad6",
+            "surface-variant": "#e4e2de",
+            "on-tertiary-fixed": "#002109",
+            "on-secondary-fixed-variant": "#5d4200",
+            "on-tertiary": "#ffffff",
+            "primary-container": "#14532d",
+            "primary-fixed": "#b1f2be",
+            "tertiary-fixed": "#6bff8f",
+            "inverse-primary": "#96d5a3",
+            "on-tertiary-container": "#35d168",
+            "secondary-container": "#febb14",
+            "on-tertiary-fixed-variant": "#005321",
+            "on-primary": "#ffffff"
+          },
+          borderRadius: {
+            DEFAULT: "0.25rem",
+            lg: "0.5rem",
+            xl: "0.75rem",
+            full: "9999px"
+          },
+          spacing: {
+            "space-xs": "0.25rem",
+            "gutter": "1.5rem",
+            "space-xl": "2.25rem",
+            "margin-mobile": "1rem",
+            "margin": "2rem",
+            "space-sm": "0.5rem",
+            "gutter-mobile": "0.75rem",
+            "space-md": "1rem",
+            "space-lg": "1.5rem"
+          },
+          fontFamily: {
+            "body-md": ["Inter"],
+            "body-sm": ["Inter"],
+            "label-sm": ["Inter"],
+            "title-lg": ["Plus Jakarta Sans"],
+            "body-lg": ["Inter"],
+            "headline-xl-mobile": ["Plus Jakarta Sans"],
+            "headline-xl": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "display-lg": ["Plus Jakarta Sans"],
+            "label-md": ["Inter"]
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 20px;
+      line-height: 1;
+      display: inline-block;
+      white-space: nowrap;
+      direction: ltr;
+      -webkit-font-smoothing: antialiased;
+    }
+    .pulse-glow {
+      animation: pulse-ring 2.4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+    @keyframes pulse-ring {
+      0%, 100% { opacity: 0.8; transform: scale(1); }
+      50% { opacity: 0.35; transform: scale(1.08); }
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface min-h-screen relative selection:bg-secondary-fixed selection:text-on-secondary-fixed pb-28 antialiased">
+
+  <!-- Ambient Botanical Atmosphere Background -->
+  <div class="fixed inset-0 pointer-events-none overflow-hidden z-0">
+    <div class="absolute -top-40 -left-40 w-96 h-96 rounded-full bg-primary-fixed-dim/20 blur-3xl"></div>
+    <div class="absolute top-1/3 -right-32 w-80 h-80 rounded-full bg-secondary-fixed/30 blur-3xl"></div>
+    <div class="absolute -bottom-24 left-1/4 w-[500px] h-[500px] rounded-full bg-primary-fixed/15 blur-3xl"></div>
+  </div>
+
+  <!-- Top Glass Navigation -->
+  <header class="sticky top-0 w-full z-50 bg-surface/85 backdrop-blur-md shadow-sm border-b border-outline-variant/30">
+    <div class="flex justify-between items-center w-full px-margin-mobile md:px-margin py-space-sm max-w-7xl mx-auto">
+      <div class="flex items-center space-x-3">
+        <a href="{{ url_for('upload_page') }}" aria-label="Go back" class="p-2 rounded-xl text-primary hover:bg-surface-container active:scale-95 transition-all flex items-center justify-center">
+          <span class="material-symbols-outlined">arrow_back</span>
+        </a>
+        <div class="flex items-center space-x-2">
+          <span class="material-symbols-outlined text-primary">spa</span>
+          <div>
+            <span class="font-label-sm text-[11px] uppercase tracking-wider text-outline block">Official Diagnostic Report</span>
+            <span class="font-headline-md text-headline-md text-primary font-bold tracking-tight">Diagnosis Report #{{ scan_id }}</span>
+          </div>
+        </div>
+      </div>
+      <div class="flex items-center space-x-2">
+        <a href="{{ url_for('history_page') }}" class="inline-flex items-center gap-1 px-3 py-1.5 rounded-xl border border-outline-variant text-primary hover:bg-surface-container font-label-md text-label-md font-semibold transition-colors">
+          <span class="material-symbols-outlined text-[18px]">history</span>
+          <span>History</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Diagnostic Workspace Canvas -->
+  <main class="relative z-10 max-w-7xl mx-auto px-margin-mobile md:px-margin pt-space-md space-y-space-lg">
+
+    <!-- Top Meta Context Bar -->
+    <div class="flex flex-wrap items-center justify-between gap-3 bg-surface-container-lowest/80 backdrop-blur-md rounded-2xl p-space-md shadow-sm border border-outline-variant/30">
+      <div class="flex items-center space-x-3">
+        <div class="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary">
+          <span class="material-symbols-outlined">verified</span>
+        </div>
+        <div>
+          <div class="font-title-lg text-title-lg text-primary font-bold">Turmeric Leaf Confirmed &bull; TNAU Validated</div>
+          <div class="font-body-sm text-body-sm text-on-surface-variant">Erode &amp; Perundurai Agricultural Technology Compendium</div>
+        </div>
+      </div>
+      <div class="flex items-center space-x-2 text-on-surface-variant font-label-md text-label-md">
+        <span class="material-symbols-outlined text-outline">schedule</span>
+        <span>Scanned: {{ scan_time }}</span>
+        <span class="text-outline-variant">&bull;</span>
+        <span class="material-symbols-outlined text-outline">pin_drop</span>
+        <span>Erode / Perundurai</span>
+      </div>
+    </div>
+
+    <!-- Hero Diagnostic Bento Section -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+
+      <!-- Left Column: Visual Leaf Segmenter & Diagnostic Scan Card (7 cols) -->
+      <div class="lg:col-span-7 bg-surface-container-lowest/85 backdrop-blur-md rounded-[24px] p-space-md md:p-space-lg border border-outline-variant/30 shadow-sm flex flex-col justify-between space-y-space-md">
+        <div>
+          <!-- Header and Badges -->
+          <div class="flex flex-wrap items-center justify-between gap-2 pb-space-sm border-b border-outline-variant/20">
+            <div class="flex items-center space-x-2">
+              <span class="material-symbols-outlined text-primary">biotech</span>
+              <span class="font-label-sm text-label-sm tracking-wider uppercase text-outline font-semibold">Segmentation Viewport</span>
+            </div>
+            <div class="flex items-center space-x-2">
+              {% if disease == "Healthy Leaf" %}
+              <span class="inline-flex items-center px-3 py-1 rounded-full bg-primary-fixed/50 text-primary font-label-md text-label-md font-bold">
+                <span class="w-2 h-2 rounded-full bg-primary mr-1.5"></span>
+                Healthy Foliage
+              </span>
+              {% else %}
+              <span class="inline-flex items-center px-3 py-1 rounded-full bg-error-container text-on-error-container font-label-md text-label-md font-bold">
+                <span class="w-2 h-2 rounded-full bg-error mr-1.5 pulse-glow"></span>
+                Pathogen Detected
+              </span>
+              {% endif %}
+              <span class="inline-flex items-center px-3 py-1 rounded-full bg-secondary-fixed/50 text-on-secondary-fixed font-label-md text-label-md font-bold">
+                <span class="material-symbols-outlined mr-1 text-[16px]">verified</span>
+                {{ confidence }}% Confidence
+              </span>
+            </div>
+          </div>
+
+          <!-- Leaf Image Canvas -->
+          <div class="relative mt-space-md rounded-2xl overflow-hidden shadow-inner bg-surface-container-highest/50 aspect-[4/3] md:aspect-[16/10]">
+            <img class="w-full h-full object-cover select-none" src="{{ image_url }}" alt="Analyzed Turmeric Leaf"/>
+            <div class="absolute inset-0 bg-gradient-to-t from-primary/30 via-transparent to-transparent pointer-events-none"></div>
+
+            <!-- Viewport Controls Overlay -->
+            <div class="absolute bottom-3 left-3 right-3 flex justify-between items-center bg-surface/85 backdrop-blur-md px-3 py-2 rounded-xl text-on-surface font-body-sm text-body-sm shadow-md">
+              <div class="flex items-center space-x-2">
+                <span class="material-symbols-outlined text-primary text-[18px]">filter_center_focus</span>
+                <span>OpenCV HSV Foliar Segmentation &bull; {{ infected_area_pct }}% Affected</span>
+              </div>
+              <span class="px-2 py-0.5 rounded-md bg-primary-fixed/40 text-primary text-xs font-bold">Processed</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pathogen Identity Information Block -->
+        <div class="pt-space-sm space-y-space-xs">
+          <div class="flex flex-wrap items-baseline space-x-2">
+            <span class="font-headline-lg text-headline-lg text-primary font-bold">{{ disease }}</span>
+            <span class="font-title-lg text-title-lg italic text-outline font-normal">({{ scientific_name }})</span>
+          </div>
+          {% if tamil and tamil.disease_name %}
+          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-lg bg-secondary-fixed/30 text-on-secondary-fixed text-sm font-semibold mt-1">
+            <span class="material-symbols-outlined text-[16px]">translate</span>
+            <span>{{ tamil.disease_name }}</span>
+          </div>
+          {% endif %}
+          <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+            {{ cause }}
+          </p>
+        </div>
+      </div>
+
+      <!-- Right Column: Quantitative Metrology & Severity Analytics (5 cols) -->
+      <div class="lg:col-span-5 flex flex-col space-y-gutter">
+
+        <!-- Quantitative Metric Gauges Card -->
+        <div class="bg-surface-container-lowest/85 backdrop-blur-md rounded-[24px] p-space-md md:p-space-lg border border-outline-variant/30 shadow-sm flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between pb-space-sm border-b border-outline-variant/20 mb-space-md">
+              <div class="flex items-center space-x-2">
+                <span class="material-symbols-outlined text-primary">speed</span>
+                <span class="font-label-sm text-label-sm tracking-wider uppercase text-outline font-semibold">Quantitative Telemetry</span>
+              </div>
+              <span class="font-label-sm text-label-sm text-on-surface-variant font-medium">OpenCV Biometrics</span>
+            </div>
+
+            <!-- Side-by-Side SVG Gauges -->
+            <div class="grid grid-cols-2 gap-4 items-center">
+              
+              <!-- Circular Gauge 1: Infected Leaf Area -->
+              <div class="flex flex-col items-center text-center p-3 rounded-2xl bg-surface-container-low/60 border border-outline-variant/20">
+                <div class="relative w-32 h-32 flex items-center justify-center">
+                  <svg class="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
+                    <circle class="text-surface-container-highest fill-none" cx="50" cy="50" r="40" stroke="currentColor" stroke-width="8"></circle>
+                    <!-- Circumference: 251.32. Offset: 251.32 - (pct / 100 * 251.32) -->
+                    {% set area_pct = infected_area_pct | float %}
+                    {% set area_offset = 251.32 - (area_pct / 100 * 251.32) %}
+                    <circle class="fill-none drop-shadow-[0_0_8px_rgba(245,179,1,0.5)]" cx="50" cy="50" r="40" stroke="url(#amber-red-gradient)" stroke-dasharray="251.32" stroke-dashoffset="{{ area_offset }}" stroke-linecap="round" stroke-width="8"></circle>
+                    <defs>
+                      <linearGradient id="amber-red-gradient" x1="0%" x2="100%" y1="0%" y2="100%">
+                        <stop offset="0%" stop-color="#febb14"></stop>
+                        <stop offset="100%" stop-color="#ba1a1a"></stop>
+                      </linearGradient>
+                    </defs>
+                  </svg>
+                  <div class="absolute inset-0 flex flex-col items-center justify-center">
+                    <span class="font-headline-md text-headline-md font-bold text-on-surface">{{ infected_area_pct }}%</span>
+                    <span class="font-label-sm text-label-sm uppercase text-outline">Foliar Area</span>
+                  </div>
+                </div>
+                <div class="mt-2 font-title-lg text-title-lg text-primary font-semibold">Infected Leaf Area</div>
+                <span class="font-body-sm text-body-sm text-secondary font-medium mt-0.5">OpenCV HSV</span>
+              </div>
+
+              <!-- Circular Gauge 2: Est. Yield Loss -->
+              <div class="flex flex-col items-center text-center p-3 rounded-2xl bg-surface-container-low/60 border border-outline-variant/20">
+                <div class="relative w-32 h-32 flex items-center justify-center">
+                  <svg class="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
+                    <circle class="text-surface-container-highest fill-none" cx="50" cy="50" r="40" stroke="currentColor" stroke-width="8"></circle>
+                    <circle class="fill-none drop-shadow-[0_0_8px_rgba(254,187,20,0.5)]" cx="50" cy="50" r="40" stroke="url(#yield-loss-gradient)" stroke-dasharray="251.32" stroke-dashoffset="180.0" stroke-linecap="round" stroke-width="8"></circle>
+                    <defs>
+                      <linearGradient id="yield-loss-gradient" x1="0%" x2="100%" y1="0%" y2="100%">
+                        <stop offset="0%" stop-color="#4ae176"></stop>
+                        <stop offset="60%" stop-color="#febb14"></stop>
+                        <stop offset="100%" stop-color="#ba1a1a"></stop>
+                      </linearGradient>
+                    </defs>
+                  </svg>
+                  <div class="absolute inset-0 flex flex-col items-center justify-center">
+                    <span class="font-headline-md text-headline-md font-bold text-on-surface">{{ yield_loss or 'Cited' }}</span>
+                    <span class="font-label-sm text-label-sm uppercase text-outline">Estimated</span>
+                  </div>
+                </div>
+                <div class="mt-2 font-title-lg text-title-lg text-primary font-semibold">Est. Yield Impact</div>
+                <span class="font-body-sm text-body-sm text-secondary font-medium mt-0.5">Agronomic Compendium</span>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- Severity Level Bar Card -->
+        <div class="bg-surface-container-lowest/85 backdrop-blur-md rounded-[24px] p-space-md md:p-space-lg border border-outline-variant/30 shadow-sm flex flex-col justify-between">
+          <div class="flex items-center justify-between pb-space-sm border-b border-outline-variant/20 mb-space-md">
+            <div class="flex items-center space-x-2">
+              <span class="material-symbols-outlined text-primary">assessment</span>
+              <span class="font-label-sm text-label-sm tracking-wider uppercase text-outline font-semibold">Severity Assessment Index</span>
+            </div>
+            <span class="px-2.5 py-0.5 rounded-full bg-secondary-container/30 text-on-secondary-container font-label-md text-label-md font-bold">
+              Level: {{ severity }}
+            </span>
+          </div>
+
+          <!-- Multi-Stage Gradient Progress Track -->
+          <div class="space-y-4 my-2">
+            <div class="relative w-full">
+              <div class="h-4 w-full rounded-full bg-gradient-to-r from-emerald-500 via-amber-400 to-red-600 shadow-inner p-0.5">
+                <div class="w-full h-full rounded-full bg-black/10"></div>
+              </div>
+              {% set sev_pos = '15%' %}
+              {% if severity == 'Moderate' %}
+                {% set sev_pos = '50%' %}
+              {% elif severity == 'Severe' %}
+                {% set sev_pos = '85%' %}
+              {% elif severity == 'Healthy' %}
+                {% set sev_pos = '5%' %}
+              {% endif %}
+              <div class="absolute -top-3 left-[{{ sev_pos }}] -translate-x-1/2 flex flex-col items-center">
+                <div class="w-7 h-7 rounded-full bg-surface shadow-lg border-2 border-secondary flex items-center justify-center text-secondary">
+                  <span class="material-symbols-outlined text-[16px]">priority_high</span>
+                </div>
+                <div class="w-0.5 h-3 bg-secondary"></div>
+              </div>
+            </div>
+
+            <!-- Segment Markers -->
+            <div class="flex justify-between items-center font-label-md text-label-md pt-1">
+              <div class="flex items-center space-x-1 text-emerald-800">
+                <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                <span>Mild (&lt; 10%)</span>
+              </div>
+              <div class="flex items-center space-x-1 text-secondary font-bold">
+                <span class="w-2 h-2 rounded-full bg-amber-500"></span>
+                <span>Moderate (10% - 30%)</span>
+              </div>
+              <div class="flex items-center space-x-1 text-red-700">
+                <span class="w-2 h-2 rounded-full bg-red-600"></span>
+                <span>Severe (&gt; 30%)</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="mt-4 p-3 rounded-xl bg-surface-container-low text-on-surface-variant font-body-sm text-body-sm border border-outline-variant/20 flex items-start space-x-2">
+            <span class="material-symbols-outlined text-secondary text-[20px] mt-0.5">info</span>
+            <span>Severity reflects foliar disease proportion. Always consult local TNAU officers before applying protective sprays.</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Interactive Tabbed Glass Accordion & Agronomy Modules -->
+    <section class="bg-surface-container-lowest/85 backdrop-blur-md rounded-[24px] p-space-md md:p-space-lg border border-outline-variant/30 shadow-sm space-y-space-md">
+      <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-space-sm border-b border-outline-variant/20">
+        <div>
+          <span class="font-label-sm text-label-sm tracking-wider uppercase text-outline font-semibold">Actionable Pathology Dossier</span>
+          <h2 class="font-headline-md text-headline-md text-primary font-bold">Agronomic Protocols &amp; Management</h2>
+        </div>
+
+        <!-- Tab Switcher Navigation -->
+        <div class="flex flex-wrap items-center gap-1.5 p-1 bg-surface-container rounded-2xl border border-outline-variant/20" role="tablist">
+          <button class="tab-btn px-4 py-2 rounded-xl font-label-md text-label-md font-bold transition-all flex items-center space-x-1.5 bg-primary text-on-primary shadow-sm" id="tab-btn-treatment" onclick="switchTab('treatment')" type="button">
+            <span class="material-symbols-outlined text-[16px]">vaccines</span>
+            <span>Treatment</span>
+          </button>
+          <button class="tab-btn px-4 py-2 rounded-xl font-label-md text-label-md font-semibold transition-all flex items-center space-x-1.5 text-on-surface-variant hover:text-primary hover:bg-surface-container-lowest" id="tab-btn-symptoms" onclick="switchTab('symptoms')" type="button">
+            <span class="material-symbols-outlined text-[16px]">troubleshoot</span>
+            <span>Symptoms</span>
+          </button>
+          <button class="tab-btn px-4 py-2 rounded-xl font-label-md text-label-md font-semibold transition-all flex items-center space-x-1.5 text-on-surface-variant hover:text-primary hover:bg-surface-container-lowest" id="tab-btn-prevention" onclick="switchTab('prevention')" type="button">
+            <span class="material-symbols-outlined text-[16px]">shield_with_heart</span>
+            <span>Prevention</span>
+          </button>
+          <button class="tab-btn px-4 py-2 rounded-xl font-label-md text-label-md font-semibold transition-all flex items-center space-x-1.5 text-on-surface-variant hover:text-primary hover:bg-surface-container-lowest" id="tab-btn-sources" onclick="switchTab('sources')" type="button">
+            <span class="material-symbols-outlined text-[16px]">menu_book</span>
+            <span>Sources</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Tab Content Panels -->
+      <div class="min-h-[220px]" id="tab-content">
+
+        <!-- Tab: Treatment (Default active) -->
+        <div class="tab-panel grid grid-cols-1 md:grid-cols-3 gap-4" id="panel-treatment">
+          {% for step in solution %}
+          <div class="p-space-md rounded-2xl bg-surface-container-low border border-outline-variant/30 flex flex-col justify-between space-y-3">
+            <div>
+              <div class="flex items-center justify-between">
+                <span class="inline-block px-2.5 py-0.5 rounded-full bg-secondary-container/30 text-on-secondary-container font-label-sm text-label-sm font-bold">Step {{ loop.index }}</span>
+                <span class="material-symbols-outlined text-outline">verified</span>
+              </div>
+              <div class="mt-2 font-title-lg text-title-lg text-primary font-bold">Action Item</div>
+              <p class="font-body-md text-body-md text-on-surface-variant mt-1 leading-relaxed">
+                {{ step }}
+              </p>
+            </div>
+            <div class="font-label-md text-label-md text-outline font-semibold">TNAU Recommended</div>
+          </div>
+          {% endfor %}
+        </div>
+
+        <!-- Tab: Symptoms (Hidden initially) -->
+        <div class="tab-panel hidden grid grid-cols-1 md:grid-cols-3 gap-4" id="panel-symptoms">
+          {% for sym in symptoms %}
+          <div class="p-space-md rounded-2xl bg-surface-container-low border border-outline-variant/30 flex flex-col space-y-2">
+            <div class="w-10 h-10 rounded-xl bg-secondary-fixed/40 text-on-secondary-fixed flex items-center justify-center">
+              <span class="material-symbols-outlined">coronavirus</span>
+            </div>
+            <div class="font-title-lg text-title-lg text-primary font-semibold">Foliar Lesion Characteristic</div>
+            <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+              {{ sym }}
+            </p>
+          </div>
+          {% endfor %}
+        </div>
+
+        <!-- Tab: Prevention (Hidden initially) -->
+        <div class="tab-panel hidden grid grid-cols-1 md:grid-cols-3 gap-4" id="panel-prevention">
+          {% for prev in prevention %}
+          <div class="p-space-md rounded-2xl bg-surface-container-low border border-outline-variant/30 flex flex-col space-y-2">
+            <div class="w-10 h-10 rounded-xl bg-primary-fixed/50 text-primary flex items-center justify-center">
+              <span class="material-symbols-outlined">shield</span>
+            </div>
+            <div class="font-title-lg text-title-lg text-primary font-semibold">Cultural &amp; Crop Practice</div>
+            <p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+              {{ prev }}
+            </p>
+          </div>
+          {% endfor %}
+        </div>
+
+        <!-- Tab: Sources & Agronomy References (Hidden initially) -->
+        <div class="tab-panel hidden space-y-3" id="panel-sources">
+          {% for src in sources %}
+          <div class="p-space-md rounded-2xl bg-surface-container-low border border-outline-variant/30 flex flex-col md:flex-row md:items-center justify-between gap-4">
+            <div class="flex items-start space-x-3">
+              <div class="p-2.5 rounded-xl bg-primary/10 text-primary mt-1">
+                <span class="material-symbols-outlined">menu_book</span>
+              </div>
+              <div>
+                <div class="font-title-lg text-title-lg text-primary font-bold">{{ src.title if src.title is defined else src }}</div>
+                <div class="font-body-md text-body-md text-on-surface-variant">Tamil Nadu Agricultural University &bull; Official Agritech Directorate</div>
+              </div>
+            </div>
+            <a href="{{ src.url if src.url is defined else '#' }}" target="_blank" rel="noopener noreferrer" class="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-xl border border-outline-variant text-primary hover:bg-surface-container font-label-md text-label-md transition-colors whitespace-nowrap self-start md:self-auto font-bold">
+              <span>View Source</span>
+              <span class="material-symbols-outlined text-[16px]">open_in_new</span>
+            </a>
+          </div>
+          {% endfor %}
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Bottom Actions Grid -->
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-4 pt-space-md pb-space-lg">
+      <div class="flex flex-wrap items-center gap-3 w-full sm:w-auto">
+        <a href="{{ url_for('upload_page') }}" class="py-3 px-6 rounded-2xl bg-gradient-to-r from-primary-container to-primary text-white font-title-lg text-title-lg font-bold flex items-center justify-center gap-2 shadow-md hover:shadow-lg transition-all active:scale-95">
+          <span class="material-symbols-outlined">add_a_photo</span>
+          <span>Scan Another Leaf</span>
+        </a>
+        <a href="{{ url_for('history_page') }}" class="py-3 px-6 rounded-2xl bg-surface-container-lowest/80 border border-outline-variant/40 text-primary font-title-lg text-title-lg font-bold flex items-center justify-center gap-2 hover:bg-surface-container-high transition-all active:scale-95">
+          <span class="material-symbols-outlined">history</span>
+          <span>View Scan History</span>
+        </a>
+      </div>
+      <button type="button" onclick="window.print()" class="py-3 px-6 rounded-2xl bg-secondary-container/30 border border-secondary-container text-on-secondary-container font-title-lg text-title-lg font-bold flex items-center justify-center gap-2 hover:bg-secondary-container/40 transition-all active:scale-95 w-full sm:w-auto">
+        <span class="material-symbols-outlined">print</span>
+        <span>Print Report</span>
+      </button>
+    </div>
+
+  </main>
+
+  <!-- Shared BottomNavBar -->
+  <nav class="fixed bottom-0 left-0 w-full z-40 bg-surface/85 backdrop-blur-md shadow-lg border-t border-outline-variant/30">
+    <div class="flex justify-around items-center px-margin-mobile py-space-xs max-w-md mx-auto">
+      <a class="flex flex-col items-center justify-center text-on-surface-variant px-space-md py-space-xs hover:text-primary transition-colors" href="{{ url_for('upload_page') }}">
+        <span class="material-symbols-outlined text-[22px]">document_scanner</span>
+        <span class="font-label-sm text-label-sm mt-0.5">New Scan</span>
+      </a>
+      <a class="flex flex-col items-center justify-center text-on-surface-variant px-space-md py-space-xs hover:text-primary transition-colors" href="{{ url_for('history_page') }}">
+        <span class="material-symbols-outlined text-[22px]">history</span>
+        <span class="font-label-sm text-label-sm mt-0.5">History</span>
+      </a>
+    </div>
+  </nav>
+
+  <script>
+    function switchTab(tabId) {
+      document.querySelectorAll('.tab-panel').forEach(panel => panel.classList.add('hidden'));
+      document.querySelectorAll('.tab-btn').forEach(btn => {
+        btn.classList.remove('bg-primary', 'text-on-primary', 'shadow-sm');
+        btn.classList.add('text-on-surface-variant');
+      });
+
+      const activePanel = document.getElementById(`panel-${tabId}`);
+      const activeBtn = document.getElementById(`tab-btn-${tabId}`);
+      if (activePanel) activePanel.classList.remove('hidden');
+      if (activeBtn) {
+        activeBtn.classList.add('bg-primary', 'text-on-primary', 'shadow-sm');
+        activeBtn.classList.remove('text-on-surface-variant');
+      }
+    }
+  </script>
+</body>
+</html>

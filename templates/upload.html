@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>AgriVision Turmeric Inspector - Upload Studio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary-fixed-dim": "#96d5a3",
+            "tertiary": "#003a16",
+            "on-background": "#1b1c1a",
+            "surface-container": "#efeeea",
+            "on-secondary-container": "#6c4d00",
+            "secondary-fixed": "#ffdea5",
+            "secondary-fixed-dim": "#febb14",
+            "primary": "#003b1b",
+            "on-secondary": "#ffffff",
+            "on-error-container": "#93000a",
+            "outline": "#717970",
+            "surface-container-low": "#f5f3ef",
+            "on-primary-fixed": "#00210d",
+            "tertiary-fixed-dim": "#4ae176",
+            "tertiary-container": "#005422",
+            "surface-tint": "#2e6a41",
+            "surface-container-highest": "#e4e2de",
+            "inverse-surface": "#30312e",
+            "on-error": "#ffffff",
+            "surface": "#fbf9f5",
+            "surface-bright": "#fbf9f5",
+            "inverse-on-surface": "#f2f0ed",
+            "surface-dim": "#dbdad6",
+            "on-surface": "#1b1c1a",
+            "on-secondary-fixed": "#271900",
+            "on-surface-variant": "#404941",
+            "on-primary-fixed-variant": "#12512c",
+            "error": "#ba1a1a",
+            "on-primary-container": "#87c695",
+            "surface-container-high": "#eae8e4",
+            "surface-container-lowest": "#ffffff",
+            "secondary": "#7b5800",
+            "outline-variant": "#c0c9be",
+            "background": "#fbf9f5",
+            "error-container": "#ffdad6",
+            "surface-variant": "#e4e2de",
+            "on-tertiary-fixed": "#002109",
+            "on-secondary-fixed-variant": "#5d4200",
+            "on-tertiary": "#ffffff",
+            "primary-container": "#14532d",
+            "primary-fixed": "#b1f2be",
+            "tertiary-fixed": "#6bff8f",
+            "inverse-primary": "#96d5a3",
+            "on-tertiary-container": "#35d168",
+            "secondary-container": "#febb14",
+            "on-tertiary-fixed-variant": "#005321",
+            "on-primary": "#ffffff"
+          },
+          borderRadius: {
+            DEFAULT: "0.25rem",
+            lg: "0.5rem",
+            xl: "0.75rem",
+            full: "9999px"
+          },
+          spacing: {
+            "space-xs": "0.25rem",
+            "gutter": "1.5rem",
+            "space-xl": "2.25rem",
+            "margin-mobile": "1rem",
+            "margin": "2rem",
+            "space-sm": "0.5rem",
+            "gutter-mobile": "0.75rem",
+            "space-md": "1rem",
+            "space-lg": "1.5rem"
+          },
+          fontFamily: {
+            "body-md": ["Inter"],
+            "body-sm": ["Inter"],
+            "label-sm": ["Inter"],
+            "title-lg": ["Plus Jakarta Sans"],
+            "body-lg": ["Inter"],
+            "headline-xl-mobile": ["Plus Jakarta Sans"],
+            "headline-xl": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "display-lg": ["Plus Jakarta Sans"],
+            "label-md": ["Inter"]
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    .material-symbols-outlined {
+      font-family: 'Material Symbols Outlined';
+      font-weight: normal;
+      font-style: normal;
+      font-size: 20px;
+      line-height: 1;
+      display: inline-block;
+      white-space: nowrap;
+      direction: ltr;
+      -webkit-font-smoothing: antialiased;
+    }
+    .material-symbols-outlined.fill {
+      font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+    }
+    @keyframes pulseGlow {
+      0%, 100% {
+        box-shadow: 0 0 16px 2px rgba(245, 179, 1, 0.25), 0 8px 32px -4px rgba(20, 83, 45, 0.06);
+      }
+      50% {
+        box-shadow: 0 0 28px 6px rgba(245, 179, 1, 0.45), 0 16px 40px -4px rgba(20, 83, 45, 0.12);
+      }
+    }
+    .pulse-glow-border {
+      animation: pulseGlow 3.5s infinite ease-in-out;
+    }
+    @keyframes scanAnimation {
+      0% { top: 0%; opacity: 0.8; }
+      50% { opacity: 1; }
+      100% { top: 100%; opacity: 0.8; }
+    }
+    .laser-beam {
+      animation: scanAnimation 2s infinite ease-in-out alternate;
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface antialiased font-body-md min-h-screen relative selection:bg-secondary-fixed selection:text-on-secondary-fixed pb-28">
+
+  <!-- Atmospheric Botanical Ambient Glows -->
+  <div class="fixed top-0 left-1/2 -translate-x-1/2 w-full max-w-lg h-96 bg-gradient-to-b from-primary-fixed-dim/20 via-secondary-fixed/15 to-transparent pointer-events-none blur-3xl -z-10"></div>
+  <div class="fixed top-1/3 -right-20 w-72 h-72 rounded-full bg-secondary-container/10 pointer-events-none blur-3xl -z-10"></div>
+  <div class="fixed bottom-20 -left-20 w-80 h-80 rounded-full bg-tertiary-fixed-dim/15 pointer-events-none blur-3xl -z-10"></div>
+
+  <!-- Shared TopAppBar -->
+  <header class="sticky top-0 w-full z-40 bg-surface/85 backdrop-blur-md shadow-sm border-b border-outline-variant/30">
+    <div class="flex justify-between items-center w-full px-margin-mobile py-space-sm max-w-md mx-auto">
+      <div class="flex items-center gap-space-sm">
+        <a href="{{ url_for('upload_page') }}" aria-label="Go Home" class="p-space-xs rounded-xl hover:bg-surface-container transition-colors duration-200 text-primary">
+          <span class="material-symbols-outlined">spa</span>
+        </a>
+        <div>
+          <span class="font-label-sm text-[11px] text-secondary uppercase tracking-wider block font-semibold">Turmeric Diagnostic Studio</span>
+          <h1 class="font-headline-md text-headline-md text-primary font-bold tracking-tight">AgriVision Inspector</h1>
+        </div>
+      </div>
+      <div class="flex items-center gap-space-xs">
+        <a href="{{ url_for('history_page') }}" aria-label="Scan History" class="p-space-xs rounded-xl hover:bg-surface-container transition-colors duration-200 text-primary flex items-center justify-center">
+          <span class="material-symbols-outlined">history</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Mobile / Desktop Content Area -->
+  <main class="max-w-md mx-auto px-margin-mobile pt-space-md space-y-space-lg">
+
+    <!-- 3-Step Interactive Diagnostic Progress Breadcrumbs -->
+    <section class="bg-surface-container-lowest/80 backdrop-blur-md rounded-2xl p-space-md shadow-sm border border-outline-variant/30">
+      <div class="relative flex items-center justify-between">
+        <!-- Connecting Track Line -->
+        <div class="absolute left-6 right-6 top-4 h-0.5 bg-outline-variant/40 -z-0"></div>
+        <div class="absolute left-6 w-1/4 top-4 h-0.5 bg-gradient-to-r from-primary to-secondary-container -z-0"></div>
+
+        <!-- Step 1: Upload (Active) -->
+        <div class="relative z-10 flex flex-col items-center">
+          <div class="w-8 h-8 rounded-full bg-primary-container text-white flex items-center justify-center ring-4 ring-secondary-container/40 shadow-sm">
+            <span class="material-symbols-outlined text-[18px] text-secondary-fixed">cloud_upload</span>
+          </div>
+          <span class="mt-space-xs font-label-md text-label-md text-primary font-bold tracking-tight">1. Upload</span>
+          <span class="text-[9px] font-semibold text-secondary uppercase tracking-wider">Active</span>
+        </div>
+
+        <!-- Step 2: Analyze (Pending) -->
+        <div class="relative z-10 flex flex-col items-center opacity-65">
+          <div class="w-8 h-8 rounded-full bg-surface-container text-on-surface-variant flex items-center justify-center border border-outline-variant">
+            <span class="material-symbols-outlined text-[16px]">neurology</span>
+          </div>
+          <span class="mt-space-xs font-label-md text-label-md text-on-surface-variant font-medium">2. Analyze</span>
+          <span class="text-[9px] font-medium text-outline uppercase tracking-wider">Queued</span>
+        </div>
+
+        <!-- Step 3: Diagnosis (Pending) -->
+        <div class="relative z-10 flex flex-col items-center opacity-65">
+          <div class="w-8 h-8 rounded-full bg-surface-container text-on-surface-variant flex items-center justify-center border border-outline-variant">
+            <span class="material-symbols-outlined text-[16px]">verified</span>
+          </div>
+          <span class="mt-space-xs font-label-md text-label-md text-on-surface-variant font-medium">3. Diagnosis</span>
+          <span class="text-[9px] font-medium text-outline uppercase tracking-wider">Target</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Upload Form -->
+    <form id="leaf-form" action="{{ url_for('predict') }}" method="POST" enctype="multipart/form-data">
+      <input type="file" name="image" id="file-input" accept="image/jpeg,image/png,image/webp" class="hidden" required/>
+
+      <!-- Primary Glass Drag-and-Drop Container -->
+      <section id="drop-zone" class="pulse-glow-border relative rounded-[26px] bg-surface-container-lowest/85 backdrop-blur-md border-2 border-dashed border-secondary-container p-space-lg text-center cursor-pointer transition-all duration-300 hover:border-primary-container">
+        <div class="absolute inset-0 bg-gradient-to-b from-secondary-fixed/10 via-transparent to-primary-fixed-dim/15 rounded-[26px] pointer-events-none"></div>
+        <div class="relative z-10 flex flex-col items-center py-space-sm">
+          <!-- Turmeric leaf bio icon badge -->
+          <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-secondary-container/20 to-primary-container/10 flex items-center justify-center mb-space-md border border-secondary-fixed/50 shadow-inner">
+            <span class="material-symbols-outlined text-4xl text-primary">psychiatry</span>
+          </div>
+          <h2 class="font-title-lg text-title-lg text-primary font-bold tracking-tight">Drag &amp; drop turmeric leaf photo</h2>
+          <p class="font-body-sm text-body-sm text-on-surface-variant mt-space-xs max-w-xs">
+            Position a single turmeric leaf perpendicular to camera for automated foliar lesion segmentation.
+          </p>
+          <!-- Technical Spec Pill -->
+          <div class="mt-space-md inline-flex items-center gap-space-xs px-space-md py-space-xs rounded-full bg-surface-container-high/60 border border-outline-variant/40">
+            <span class="material-symbols-outlined text-[14px] text-secondary">info</span>
+            <span class="font-label-sm text-label-sm text-on-surface-variant font-medium">Supports JPG, PNG, WEBP up to 5 MB</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Dual Action Buttons -->
+      <section class="grid grid-cols-1 sm:grid-cols-2 gap-space-sm mt-space-md">
+        <!-- Choose Image Gallery Button -->
+        <button type="button" id="btn-gallery" class="flex items-center justify-center gap-space-sm py-space-md px-space-lg rounded-2xl bg-gradient-to-r from-primary-container to-primary text-white font-label-md text-label-md font-semibold tracking-wide border border-primary-fixed-dim/30 shadow-md hover:shadow-lg hover:from-primary hover:to-primary-container transition-all duration-200 active:scale-95">
+          <span class="material-symbols-outlined">drive_folder_upload</span>
+          <span>Choose from Gallery</span>
+        </button>
+
+        <!-- Use Live Field Camera Button -->
+        <button type="button" id="btn-camera" class="flex items-center justify-center gap-space-sm py-space-md px-space-lg rounded-2xl bg-gradient-to-r from-secondary-container to-secondary-fixed-dim text-on-secondary-fixed font-label-md text-label-md font-bold tracking-wide border border-secondary-fixed shadow-[0_4px_16px_-2px_rgba(245,179,1,0.45)] hover:brightness-105 transition-all duration-200 active:scale-95">
+          <span class="material-symbols-outlined">photo_camera</span>
+          <span>Use Live Field Camera</span>
+        </button>
+      </section>
+
+      <!-- Uploaded Sample Preview Card (Initially Hidden) -->
+      <section id="preview-card" class="hidden mt-space-md bg-surface-container-lowest/90 backdrop-blur-md rounded-2xl p-space-md border border-outline-variant/40 shadow-sm space-y-space-sm">
+        <div class="flex items-center justify-between">
+          <span class="font-label-sm text-label-sm text-primary uppercase font-bold tracking-wider flex items-center gap-1">
+            <span class="w-2 h-2 rounded-full bg-secondary-fixed-dim animate-ping"></span>
+            Sample Staged for Diagnostics
+          </span>
+          <button type="button" id="btn-remove-file" class="text-error font-label-md text-label-md font-semibold hover:underline flex items-center gap-1">
+            <span class="material-symbols-outlined text-[16px]">delete</span>
+            Remove
+          </button>
+        </div>
+        <div class="flex gap-space-md items-center bg-surface-container-low/60 rounded-xl p-space-sm border border-outline-variant/30">
+          <div class="relative w-20 h-20 rounded-lg overflow-hidden shrink-0 border border-outline-variant/60 shadow-inner bg-surface-dim">
+            <img id="leaf-preview-img" class="w-full h-full object-cover" src="#" alt="Selected turmeric leaf preview"/>
+            <div class="absolute bottom-1 right-1 bg-primary/80 backdrop-blur-xs text-white text-[9px] font-bold px-1 rounded">READY</div>
+          </div>
+          <div class="flex-1 min-w-0">
+            <h3 id="preview-filename" class="font-title-lg text-body-lg text-primary font-bold truncate">sample.jpg</h3>
+            <p id="preview-filespecs" class="font-body-sm text-body-sm text-on-surface-variant truncate">Format: Image &bull; Single Leaf</p>
+            <div class="mt-space-xs flex flex-wrap items-center gap-space-xs">
+              <span id="preview-size-badge" class="px-space-xs py-0.5 rounded-md bg-secondary-container/20 text-on-secondary-container font-label-sm text-label-sm font-semibold">
+                -- MB
+              </span>
+              <span class="px-space-xs py-0.5 rounded-md bg-primary-fixed/40 text-primary font-label-sm text-label-sm font-semibold flex items-center gap-0.5">
+                <span class="material-symbols-outlined text-[12px]">check_circle</span>
+                Valid Specimen
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Prominent Glowing CTA Button (Proceed to AI Analysis) -->
+      <div class="pt-space-md pb-space-lg">
+        <button type="submit" id="btn-submit" disabled class="w-full py-space-md px-space-xl rounded-2xl bg-gradient-to-r from-primary-container via-primary to-primary-container text-white font-title-lg text-title-lg font-bold flex items-center justify-center gap-space-sm shadow-[0_8px_28px_-2px_rgba(20,83,45,0.45)] hover:shadow-[0_12px_36px_-2px_rgba(20,83,45,0.6)] border border-primary-fixed-dim/40 transition-all duration-200 disabled:opacity-50 disabled:cursor-not-allowed group">
+          <span class="material-symbols-outlined text-secondary-fixed group-hover:rotate-12 transition-transform duration-200">smart_toy</span>
+          <span id="btn-submit-text">Proceed to AI Analysis</span>
+          <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+        </button>
+        <p class="text-center font-label-sm text-label-sm text-outline mt-space-xs">
+          MobileNetV2 neural inference + OpenCV foliar segmentation.
+        </p>
+      </div>
+    </form>
+
+    <!-- Practical Photography Guidelines Card -->
+    <section class="bg-surface-container-low/70 backdrop-blur-md rounded-2xl p-space-md border border-primary-fixed-dim/40 shadow-sm">
+      <div class="flex items-center gap-space-xs mb-space-sm">
+        <span class="material-symbols-outlined text-primary text-[20px]">verified_user</span>
+        <h4 class="font-title-lg text-headline-md text-primary font-bold">Tips for 99%+ Accuracy</h4>
+      </div>
+      <p class="font-body-sm text-body-sm text-on-surface-variant mb-space-md">
+        Field lighting and focal distance directly calibrate our deep-learning botanical pathology models.
+      </p>
+      <ul class="space-y-space-sm">
+        <li class="flex items-start gap-space-sm">
+          <div class="w-5 h-5 rounded-full bg-primary-fixed flex items-center justify-center shrink-0 mt-0.5 text-primary">
+            <span class="material-symbols-outlined text-[14px]">check</span>
+          </div>
+          <div>
+            <span class="font-label-md text-label-md text-on-surface font-semibold block">Uniform Daylight</span>
+            <span class="font-body-sm text-body-sm text-on-surface-variant">Avoid harsh cast shadows or artificial multi-spectrum LED tinting.</span>
+          </div>
+        </li>
+        <li class="flex items-start gap-space-sm">
+          <div class="w-5 h-5 rounded-full bg-primary-fixed flex items-center justify-center shrink-0 mt-0.5 text-primary">
+            <span class="material-symbols-outlined text-[14px]">check</span>
+          </div>
+          <div>
+            <span class="font-label-md text-label-md text-on-surface font-semibold block">Isolate Single Leaf Blade</span>
+            <span class="font-body-sm text-body-sm text-on-surface-variant">Flatten the lamina and ensure the leaf fills at least 70% of the active frame.</span>
+          </div>
+        </li>
+        <li class="flex items-start gap-space-sm">
+          <div class="w-5 h-5 rounded-full bg-primary-fixed flex items-center justify-center shrink-0 mt-0.5 text-primary">
+            <span class="material-symbols-outlined text-[14px]">check</span>
+          </div>
+          <div>
+            <span class="font-label-md text-label-md text-on-surface font-semibold block">Capture Surface &amp; Lesions</span>
+            <span class="font-body-sm text-body-sm text-on-surface-variant">Focus directly on infected zones showing leaf spot or leaf blotch symptoms.</span>
+          </div>
+        </li>
+      </ul>
+    </section>
+
+  </main>
+
+  <!-- AI Diagnostic Processing Screen (Overlay) -->
+  <div id="loading-overlay" class="fixed inset-0 z-50 bg-background/95 backdrop-blur-lg flex flex-col items-center justify-center p-space-md hidden">
+    <div class="max-w-xs w-full text-center space-y-space-lg">
+      <div class="relative w-44 h-44 mx-auto rounded-3xl overflow-hidden border-2 border-secondary-container shadow-2xl bg-surface-container">
+        <img id="scanning-preview" class="w-full h-full object-cover" src="#" alt="Scanning leaf"/>
+        <div class="absolute inset-x-0 h-1 bg-gradient-to-r from-transparent via-secondary-fixed to-transparent laser-beam"></div>
+        <div class="absolute inset-0 bg-primary/10 pointer-events-none"></div>
+      </div>
+      <div class="space-y-space-xs">
+        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary-container/20 text-on-secondary-container text-xs font-bold uppercase tracking-wider">
+          <span class="w-2 h-2 rounded-full bg-secondary animate-ping"></span>
+          AI Diagnostic in Progress
+        </div>
+        <h3 class="text-xl font-bold text-primary">Analyzing Turmeric Foliage</h3>
+        <p class="text-xs text-on-surface-variant">Segmenting lesions &bull; MobileNetV2 Neural Path &bull; TNAU Lookup</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Shared BottomNavBar -->
+  <nav class="fixed bottom-0 left-0 w-full z-40 bg-surface/85 backdrop-blur-md shadow-lg border-t border-outline-variant/30">
+    <div class="flex justify-around items-center px-margin-mobile py-space-xs max-w-md mx-auto">
+      <a class="flex flex-col items-center justify-center bg-secondary-container/20 text-primary rounded-xl px-space-md py-space-xs font-bold" href="{{ url_for('upload_page') }}">
+        <span class="material-symbols-outlined fill text-[22px]">document_scanner</span>
+        <span class="font-label-sm text-label-sm mt-0.5">New Scan</span>
+      </a>
+      <a class="flex flex-col items-center justify-center text-on-surface-variant px-space-md py-space-xs hover:text-primary transition-colors" href="{{ url_for('history_page') }}">
+        <span class="material-symbols-outlined text-[22px]">history</span>
+        <span class="font-label-sm text-label-sm mt-0.5">History</span>
+      </a>
+    </div>
+  </nav>
+
+  <script>
+    const fileInput = document.getElementById('file-input');
+    const dropZone = document.getElementById('drop-zone');
+    const btnGallery = document.getElementById('btn-gallery');
+    const btnCamera = document.getElementById('btn-camera');
+    const previewCard = document.getElementById('preview-card');
+    const previewImg = document.getElementById('leaf-preview-img');
+    const previewFilename = document.getElementById('preview-filename');
+    const previewSizeBadge = document.getElementById('preview-size-badge');
+    const btnRemoveFile = document.getElementById('btn-remove-file');
+    const btnSubmit = document.getElementById('btn-submit');
+    const leafForm = document.getElementById('leaf-form');
+    const loadingOverlay = document.getElementById('loading-overlay');
+    const scanningPreview = document.getElementById('scanning-preview');
+
+    function handleFile(file) {
+      if (!file) return;
+      if (file.size > 5 * 1024 * 1024) {
+        alert("File size exceeds 5 MB. Please select a photo under 5 MB.");
+        return;
+      }
+      previewFilename.textContent = file.name;
+      previewSizeBadge.textContent = (file.size / (1024 * 1024)).toFixed(2) + " MB";
+
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        previewImg.src = e.target.result;
+        scanningPreview.src = e.target.result;
+        previewCard.classList.remove('hidden');
+        btnSubmit.disabled = false;
+        btnSubmit.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      };
+      reader.readAsDataURL(file);
+    }
+
+    dropZone.addEventListener('click', () => {
+      fileInput.removeAttribute('capture');
+      fileInput.click();
+    });
+
+    btnGallery.addEventListener('click', () => {
+      fileInput.removeAttribute('capture');
+      fileInput.click();
+    });
+
+    btnCamera.addEventListener('click', () => {
+      fileInput.setAttribute('capture', 'environment');
+      fileInput.click();
+    });
+
+    fileInput.addEventListener('change', (e) => {
+      if (e.target.files && e.target.files[0]) {
+        handleFile(e.target.files[0]);
+      }
+    });
+
+    // Drag and Drop
+    ['dragenter', 'dragover'].forEach(eventName => {
+      dropZone.addEventListener(eventName, (e) => {
+        e.preventDefault();
+        dropZone.classList.add('border-primary-container');
+      });
+    });
+
+    ['dragleave', 'drop'].forEach(eventName => {
+      dropZone.addEventListener(eventName, (e) => {
+        e.preventDefault();
+        dropZone.classList.remove('border-primary-container');
+      });
+    });
+
+    dropZone.addEventListener('drop', (e) => {
+      if (e.dataTransfer.files && e.dataTransfer.files[0]) {
+        fileInput.files = e.dataTransfer.files;
+        handleFile(e.dataTransfer.files[0]);
+      }
+    });
+
+    btnRemoveFile.addEventListener('click', () => {
+      fileInput.value = '';
+      previewImg.src = '#';
+      previewCard.classList.add('hidden');
+      btnSubmit.disabled = true;
+    });
+
+    leafForm.addEventListener('submit', () => {
+      loadingOverlay.classList.remove('hidden');
+    });
+  </script>
+</body>
+</html>

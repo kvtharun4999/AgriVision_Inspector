@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+  <title>AgriVision - Image Verification Warning</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@600;700;800&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+  <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+  <script id="tailwind-config">
+    tailwind.config = {
+      darkMode: "class",
+      theme: {
+        extend: {
+          colors: {
+            "primary-fixed-dim": "#96d5a3",
+            "tertiary": "#003a16",
+            "on-background": "#1b1c1a",
+            "surface-container": "#efeeea",
+            "on-secondary-container": "#6c4d00",
+            "secondary-fixed": "#ffdea5",
+            "secondary-fixed-dim": "#febb14",
+            "primary": "#003b1b",
+            "on-secondary": "#ffffff",
+            "on-error-container": "#93000a",
+            "outline": "#717970",
+            "surface-container-low": "#f5f3ef",
+            "on-primary-fixed": "#00210d",
+            "tertiary-fixed-dim": "#4ae176",
+            "tertiary-container": "#005422",
+            "surface-tint": "#2e6a41",
+            "surface-container-highest": "#e4e2de",
+            "inverse-surface": "#30312e",
+            "on-error": "#ffffff",
+            "surface": "#fbf9f5",
+            "surface-bright": "#fbf9f5",
+            "inverse-on-surface": "#f2f0ed",
+            "surface-dim": "#dbdad6",
+            "on-surface": "#1b1c1a",
+            "on-secondary-fixed": "#271900",
+            "on-surface-variant": "#404941",
+            "on-primary-fixed-variant": "#12512c",
+            "error": "#ba1a1a",
+            "on-primary-container": "#87c695",
+            "surface-container-high": "#eae8e4",
+            "surface-container-lowest": "#ffffff",
+            "secondary": "#7b5800",
+            "outline-variant": "#c0c9be",
+            "background": "#fbf9f5",
+            "error-container": "#ffdad6",
+            "surface-variant": "#e4e2de",
+            "on-tertiary-fixed": "#002109",
+            "on-secondary-fixed-variant": "#5d4200",
+            "on-tertiary": "#ffffff",
+            "primary-container": "#14532d",
+            "primary-fixed": "#b1f2be",
+            "tertiary-fixed": "#6bff8f",
+            "inverse-primary": "#96d5a3",
+            "on-tertiary-container": "#35d168",
+            "secondary-container": "#febb14",
+            "on-tertiary-fixed-variant": "#005321",
+            "on-primary": "#ffffff"
+          },
+          borderRadius: {
+            DEFAULT: "0.25rem",
+            lg: "0.5rem",
+            xl: "0.75rem",
+            full: "9999px"
+          },
+          spacing: {
+            "space-xs": "0.25rem",
+            "gutter": "1.5rem",
+            "space-xl": "2.25rem",
+            "margin-mobile": "1rem",
+            "margin": "2rem",
+            "space-sm": "0.5rem",
+            "gutter-mobile": "0.75rem",
+            "space-md": "1rem",
+            "space-lg": "1.5rem"
+          },
+          fontFamily: {
+            "body-md": ["Inter"],
+            "body-sm": ["Inter"],
+            "label-sm": ["Inter"],
+            "title-lg": ["Plus Jakarta Sans"],
+            "body-lg": ["Inter"],
+            "headline-xl-mobile": ["Plus Jakarta Sans"],
+            "headline-xl": ["Plus Jakarta Sans"],
+            "headline-lg": ["Plus Jakarta Sans"],
+            "headline-md": ["Plus Jakarta Sans"],
+            "display-lg": ["Plus Jakarta Sans"],
+            "label-md": ["Inter"]
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    .material-symbols-outlined {
+      font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 1;
+    }
+    .amber-halo {
+      box-shadow: 0 0 32px 4px rgba(254, 187, 20, 0.35);
+    }
+  </style>
+</head>
+<body class="bg-background text-on-surface antialiased min-h-screen relative flex flex-col font-body-md selection:bg-secondary-fixed selection:text-on-secondary-fixed overflow-x-hidden">
+
+  <!-- Ambient Canopy Background Lighting -->
+  <div class="fixed inset-0 pointer-events-none z-0">
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_20%,rgba(245,179,1,0.18)_0%,rgba(253,251,247,0)_70%)]"></div>
+    <div class="absolute inset-0 bg-[radial-gradient(circle_at_80%_85%,rgba(34,197,94,0.12)_0%,rgba(253,251,247,0)_60%)]"></div>
+  </div>
+
+  <!-- Shared TopAppBar -->
+  <header class="sticky top-0 w-full z-50 bg-surface/85 backdrop-blur-md shadow-sm border-b border-outline-variant/30">
+    <div class="flex justify-between items-center w-full px-margin-mobile py-space-sm max-w-md mx-auto">
+      <div class="flex items-center space-x-2">
+        <a href="{{ url_for('upload_page') }}" aria-label="Go Back" class="p-1.5 rounded-full hover:bg-surface-container transition-colors duration-200 text-on-surface">
+          <span class="material-symbols-outlined">arrow_back</span>
+        </a>
+        <div class="flex items-center space-x-1.5">
+          <span class="material-symbols-outlined text-primary" data-icon="spa">spa</span>
+          <span class="text-headline-md font-headline-md text-primary font-bold tracking-tight">AgriVision</span>
+        </div>
+      </div>
+      <div class="flex items-center space-x-2">
+        <span class="px-space-sm py-0.5 rounded-full bg-error-container text-on-error-container font-label-md text-label-md flex items-center gap-1 font-bold">
+          <span class="w-1.5 h-1.5 rounded-full bg-error animate-pulse"></span>
+          Verification Notice
+        </span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Scrollable Mobile Content Canvas -->
+  <main class="relative z-10 flex-1 px-margin-mobile pt-space-md pb-28 max-w-md mx-auto w-full flex flex-col gap-space-md">
+
+    <!-- Central Diagnostic Notice Card -->
+    <div class="relative rounded-[24px] p-space-lg bg-surface-container-lowest/85 backdrop-blur-md border border-secondary-fixed/40 shadow-sm amber-halo overflow-hidden">
+      <div class="absolute -right-6 -top-6 w-24 h-24 bg-secondary-fixed/30 rounded-full blur-xl pointer-events-none"></div>
+
+      <!-- Error Illustration Badge -->
+      <div class="flex flex-col items-center text-center">
+        <div class="relative mb-space-md flex items-center justify-center">
+          <div class="w-20 h-20 rounded-full bg-secondary-fixed/40 flex items-center justify-center animate-pulse">
+            <div class="w-16 h-16 rounded-full bg-surface-container-lowest flex items-center justify-center shadow-inner border border-secondary-fixed">
+              <span class="material-symbols-outlined text-secondary text-[32px]">search</span>
+            </div>
+          </div>
+          <div class="absolute -bottom-1 -right-1 w-8 h-8 rounded-full bg-error text-white flex items-center justify-center border-2 border-surface-container-lowest shadow-md">
+            <span class="material-symbols-outlined text-sm font-bold">priority_high</span>
+          </div>
+        </div>
+
+        <!-- Strict Required Message -->
+        <h1 class="text-headline-md font-headline-md text-primary tracking-tight font-bold mb-space-xs">
+          Please upload a correct turmeric leaf image.
+        </h1>
+
+        <p class="text-body-md font-body-md text-on-surface-variant leading-relaxed mt-space-xs">
+          {{ message or "Our botanical inspection pipeline could not identify a valid turmeric (Curcuma longa) leaf blade. The upload might be a rhizome/root, a non-turmeric plant, or out of focus." }}
+        </p>
+
+        {% if reason %}
+        <div class="mt-space-md inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary-container/20 border border-secondary-fixed/60 text-on-secondary-container text-label-md font-label-md font-semibold">
+          <span class="material-symbols-outlined text-base">info</span>
+          Diagnostic Check: {{ reason }}
+        </div>
+        {% endif %}
+      </div>
+    </div>
+
+    <!-- Visual Diagnostic Guide: Reference Cards -->
+    <section class="rounded-[20px] p-space-md bg-surface-container-low/70 backdrop-blur-md border border-outline-variant/30">
+      <div class="flex items-center justify-between mb-space-sm">
+        <h2 class="text-title-lg font-title-lg text-primary font-bold flex items-center gap-1.5">
+          <span class="material-symbols-outlined text-secondary">troubleshoot</span>
+          Acceptable vs Rejected Photos
+        </h2>
+        <span class="text-label-sm font-label-sm text-outline tracking-wider uppercase font-semibold">Guide</span>
+      </div>
+
+      <div class="grid grid-cols-3 gap-2 text-center">
+        <!-- Card 1: Blurry / Root -->
+        <div class="flex flex-col rounded-xl overflow-hidden bg-surface-container-lowest border border-outline-variant/40 shadow-xs">
+          <div class="relative h-20 w-full overflow-hidden bg-surface-container flex items-center justify-center">
+            <span class="material-symbols-outlined text-4xl text-outline">blur_on</span>
+            <span class="absolute top-1 right-1 w-5 h-5 rounded-full bg-error text-white flex items-center justify-center text-xs font-bold">&times;</span>
+          </div>
+          <div class="p-1.5 text-center flex-1 flex items-center justify-center">
+            <span class="text-label-sm font-label-sm text-on-surface-variant leading-tight">Blurry or Defocused</span>
+          </div>
+        </div>
+
+        <!-- Card 2: Root / Rhizome -->
+        <div class="flex flex-col rounded-xl overflow-hidden bg-surface-container-lowest border border-outline-variant/40 shadow-xs">
+          <div class="relative h-20 w-full overflow-hidden bg-surface-container flex items-center justify-center">
+            <span class="material-symbols-outlined text-4xl text-secondary">pest_control_rodent</span>
+            <span class="absolute top-1 right-1 w-5 h-5 rounded-full bg-error text-white flex items-center justify-center text-xs font-bold">&times;</span>
+          </div>
+          <div class="p-1.5 text-center flex-1 flex items-center justify-center">
+            <span class="text-label-sm font-label-sm text-on-surface-variant leading-tight">Root / Non-Leaf</span>
+          </div>
+        </div>
+
+        <!-- Card 3: Clear Turmeric Leaf -->
+        <div class="flex flex-col rounded-xl overflow-hidden bg-surface-container-lowest border border-primary-fixed-dim shadow-xs">
+          <div class="relative h-20 w-full overflow-hidden bg-primary-fixed/20 flex items-center justify-center">
+            <span class="material-symbols-outlined text-4xl text-primary">eco</span>
+            <span class="absolute top-1 right-1 w-5 h-5 rounded-full bg-primary-container text-white flex items-center justify-center text-xs font-bold">&#10003;</span>
+          </div>
+          <div class="p-1.5 text-center flex-1 flex items-center justify-center bg-primary-fixed/20">
+            <span class="text-label-sm font-label-sm text-primary font-bold leading-tight">Single Leaf Blade</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Field Photography Checklist -->
+    <section class="rounded-[20px] p-space-md bg-surface-container-lowest/80 backdrop-blur-md border border-outline-variant/20 shadow-xs">
+      <h3 class="text-title-lg font-title-lg text-primary font-bold mb-space-sm flex items-center gap-1.5">
+        <span class="material-symbols-outlined text-tertiary-container">photo_camera</span>
+        How to take an accepted leaf photo
+      </h3>
+      <ul class="space-y-2.5">
+        <li class="flex items-start gap-2.5 text-body-sm font-body-sm text-on-surface">
+          <span class="material-symbols-outlined text-primary mt-0.5">check_circle</span>
+          <span><strong>One single leaf:</strong> Lay or hold a single turmeric leaf flat against daylight.</span>
+        </li>
+        <li class="flex items-start gap-2.5 text-body-sm font-body-sm text-on-surface">
+          <span class="material-symbols-outlined text-primary mt-0.5">check_circle</span>
+          <span><strong>Foliage focus:</strong> Make sure the leaf blade occupies at least 70% of the photo frame.</span>
+        </li>
+        <li class="flex items-start gap-2.5 text-body-sm font-body-sm text-on-surface">
+          <span class="material-symbols-outlined text-primary mt-0.5">check_circle</span>
+          <span><strong>Leaves only:</strong> Do not upload rhizome roots, field soil, or non-turmeric plants.</span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- Action Buttons -->
+    <div class="flex flex-col gap-2.5 mt-space-xs">
+      <a href="{{ url_for('upload_page') }}" class="w-full py-3.5 px-4 rounded-[16px] bg-gradient-to-r from-primary-container to-primary text-white font-title-lg text-title-lg font-bold flex items-center justify-center gap-2 border border-tertiary-fixed-dim/40 shadow-md hover:shadow-lg active:scale-[0.98] transition-all duration-200">
+        <span class="material-symbols-outlined text-xl">add_a_photo</span>
+        <span>Try Again / Upload Leaf</span>
+      </a>
+      <a href="{{ url_for('history_page') }}" class="w-full py-3 px-4 rounded-[16px] bg-surface-container-lowest/80 backdrop-blur-md text-primary font-label-md text-label-md font-semibold flex items-center justify-center gap-2 border border-outline-variant/40 hover:bg-surface-container-high transition-colors active:scale-[0.98]">
+        <span class="material-symbols-outlined text-lg">history</span>
+        <span>View Previous Scans</span>
+      </a>
+    </div>
+
+  </main>
+
+  <!-- Shared BottomNavBar -->
+  <nav class="fixed bottom-0 left-0 w-full z-40 bg-surface/85 backdrop-blur-md shadow-lg border-t border-outline-variant/30">
+    <div class="flex justify-around items-center px-margin-mobile py-space-xs max-w-md mx-auto">
+      <a class="flex flex-col items-center justify-center bg-secondary-container/20 text-primary rounded-xl px-space-md py-space-xs font-bold" href="{{ url_for('upload_page') }}">
+        <span class="material-symbols-outlined text-[22px]">document_scanner</span>
+        <span class="font-label-sm text-label-sm mt-0.5">New Scan</span>
+      </a>
+      <a class="flex flex-col items-center justify-center text-on-surface-variant px-space-md py-space-xs hover:text-primary transition-colors" href="{{ url_for('history_page') }}">
+        <span class="material-symbols-outlined text-[22px]">history</span>
+        <span class="font-label-sm text-label-sm mt-0.5">History</span>
+      </a>
+    </div>
+  </nav>
+
+</body>
+</html>

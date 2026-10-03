@@ -1,0 +1,465 @@
+{
+  "diseases": {
+    "Leaf Spot": {
+      "scientific_name": "Colletotrichum capsici",
+      "cause": "A fungus that spreads by rain splash and wind. It thrives in humid weather, dense planting, and when infected leaf debris remains in the field.",
+      "symptoms": [
+        "Small oval to irregular brown spots appearing on the upper leaf surface",
+        "Spots turn dirty yellow or dark brown, often surrounded by a distinct yellowish chlorotic halo",
+        "Nearby spots coalesce rapidly, causing drying and blighting of the leaf margins"
+      ],
+      "solution": [
+        "1. Collect and burn severely diseased foliage to eradicate inoculum sources.",
+        "2. Spray Mancozeb (2 g/litre of water) or Carbendazim (1 g/litre of water) upon initial symptom detection (verify with TNAU or local agriculture officer).",
+        "3. Improve furrow drainage and increase inter-plant spacing to reduce microclimate humidity."
+      ],
+      "prevention": [
+        "Treat seed rhizomes with recommended fungicide slurry prior to planting",
+        "Follow crop rotation with non-host cereals or legumes every 2-3 years",
+        "Maintain clean field borders and destroy post-harvest debris",
+        "Conduct regular field scouting once a week during the rainy season"
+      ],
+      "yield_loss": "15% - 25% (Source: TNAU Agritech Portal & ICAR-IISR Turmeric Disease Compendium)",
+      "sources": [
+        {
+          "title": "TNAU Agritech Portal - Turmeric Leaf Spot Management",
+          "url": "https://agritech.tnau.ac.in/crop_protection/turmeric_diseases.html"
+        },
+        {
+          "title": "ICAR - Indian Institute of Spices Research (IISR)",
+          "url": "https://spices.res.in"
+        }
+      ],
+      "tamil": {
+        "disease_name": "இலைப்புள்ளி நோய் (Leaf Spot)",
+        "scientific_name": "கோலெட்டோட்ரைக்கம் கேப்சிசி (Colletotrichum capsici)",
+        "cause": "மழை நீர் மற்றும் காற்றின் மூலம் பரவும் பூஞ்சான் நோய். அதிக ஈரப்பதம் மற்றும் பயிர்கள் நெருக்கமாக இருக்கும் போது வேகமாக பரவுகிறது.",
+        "symptoms": [
+          "இலையின் மேல் பகுதியில் தோன்றும் சிறிய பழுப்பு நிற புள்ளிகள்",
+          "புள்ளிகளைச் சுற்றி மஞ்சள் நிற வளையம் உருவாகி இலைகள் காய்ந்து போதல்",
+          "புள்ளிகள் ஒன்று சேர்ந்து இலையின் ஓரங்கள் கருகி உலர்ந்து விடுதல்"
+        ],
+        "solution": [
+          "1. பாதிக்கப்பட்ட இலைகளை உடனடியாக அகற்றி தீயிட்டு அழிக்கவும்.",
+          "2. மான்கோசெப் (2 கிராம்/லிட்டர்) அல்லது கார்பென்டாசிம் (1 கிராம்/லிட்டர்) தெளிக்கவும் (வேளாண் அலுவலரிடம் மருந்தின் அளவை உறுதிப்படுத்தவும்).",
+          "3. பாத்திகளில் நீர் தேங்காமல் வடிகால் வசதி செய்து, செடிகளுக்கிடையே போதிய இடைவெளி விடவும்."
+        ],
+        "prevention": [
+          "நோய் தாக்காத தரமான விதை விரலிகளை தேர்வு செய்து விதை நேர்த்தி செய்தல்",
+          "மழைக்காலங்களில் வாரம் ஒருமுறை பயிர்களை தொடர்ந்து கண்காணித்தல்",
+          "அறுவடைக்கு பின் நிலத்தை தூய்மையாக பராமரித்து பயிர் சுழற்சி மேற்கொள்ளுதல்"
+        ]
+      }
+    },
+    "Leaf Blotch": {
+      "scientific_name": "Taphrina maculans",
+      "cause": "An airborne fungal pathogen favored by prolonged cool, overcast weather and relative humidity exceeding 80%.",
+      "symptoms": [
+        "Small, circular to oblong reddish-brown or orange-yellow spots on both upper and lower leaf surfaces",
+        "Numerous tiny spots coalesce forming large necrotic patches",
+        "Severely affected leaves show dirty yellow scorch and dry prematurely"
+      ],
+      "solution": [
+        "1. Remove and destroy infected leaves from the bunds to avoid spore dispersion.",
+        "2. Apply Copper Oxychloride (2.5 g/litre) or Mancozeb (2 g/litre) as a protective foliar spray (verify with TNAU or local agriculture officer).",
+        "3. Avoid excessive split application of nitrogen fertilizers which produces succulent susceptible leaves."
+      ],
+      "prevention": [
+        "Plant certified disease-free mother and finger rhizomes",
+        "Dip seed rhizomes in Trichoderma viride or approved bio-agents before sowing",
+        "Ensure proper ridges and furrows to prevent waterlogged conditions",
+        "Keep fields free of weeds to ensure good air circulation"
+      ],
+      "yield_loss": "10% - 20% (Source: TNAU Agritech Portal & Department of Agriculture, Tamil Nadu)",
+      "sources": [
+        {
+          "title": "TNAU Agritech Portal - Turmeric Leaf Blotch Management",
+          "url": "https://agritech.tnau.ac.in/crop_protection/turmeric_diseases.html"
+        },
+        {
+          "title": "ICAR KVK Erode / Perundurai Field Advisory",
+          "url": "https://kvk.icar.gov.in"
+        }
+      ],
+      "tamil": {
+        "disease_name": "இலைக்கருகல் நோய் (Leaf Blotch)",
+        "scientific_name": "டாப்ரினா மேக்குலன்ஸ் (Taphrina maculans)",
+        "cause": "காற்றில் பரவும் பூஞ்சான் மூலம் ஏற்படும் நோய். தொடர் பனி, மேகமூட்டம் மற்றும் குளிர்ந்த ஈரப்பதமான காலநிலையில் வேகமாகப் பரவுகிறது.",
+        "symptoms": [
+          "இலையின் இரு புறங்களிலும் தோன்றும் சிறிய செம்பழுப்பு நிறப் புள்ளிகள்",
+          "புள்ளிகள் பெருகி ஒன்று கூடி இலை முழுவதும் கருகிய தோற்றத்தை அளித்தல்",
+          "இலைகள் முன்கூட்டியே காய்ந்து மஞ்சளின் வளர்ச்சி தடைபடுதல்"
+        ],
+        "solution": [
+          "1. பாதிக்கப்பட்ட இலைகளைப் பறித்து உடனடியாக அப்புறப்படுத்தி அழிக்கவும்.",
+          "2. காப்பர் ஆக்ஸிகுளோரைடு (2.5 கிராம்/லிட்டர்) அல்லது மான்கோசெப் (2 கிராம்/லிட்டர்) தெளிக்கவும் (வேளாண் அலுவலரை கலந்தாலோசிக்கவும்).",
+          "3. அளவுக்கு அதிகமான தழைச்சத்து (யூரியா) இடுவதைத் தவிர்த்து சமச்சீர் உரமிடுதல்."
+        ],
+        "prevention": [
+          "ஆரோக்கியமான சான்று பெற்ற விதை கிழங்குகளைப் பயன்படுத்துதல்",
+          "விதைப்பதற்கு முன் டிரைக்கோடெர்மா விரிடி கொண்டு விதை நேர்த்தி செய்தல்",
+          "வயலில் நல்ல வடிகால் வசதி மற்றும் காற்று சுழற்சியை உறுதி செய்தல்"
+        ]
+      }
+    },
+    "Healthy Leaf": {
+      "scientific_name": "Curcuma longa (Healthy foliage)",
+      "cause": "No pathological infection or biotic stress detected. Plant is photosynthesizing actively.",
+      "symptoms": [
+        "Uniform, vibrant green pigmentation across the leaf blade",
+        "Clean margins with no chlorosis, necrosis, or foliar spotting"
+      ],
+      "solution": [
+        "1. No curative action required.",
+        "2. Continue standard intercultural operations, weeding, and balanced NPK nutrition."
+      ],
+      "prevention": [
+        "Conduct weekly routine scouting, particularly after monsoon showers",
+        "Maintain clean bunds and proper furrow drainage"
+      ],
+      "yield_loss": null,
+      "sources": [
+        {
+          "title": "TNAU Agritech Portal - Turmeric Good Agricultural Practices",
+          "url": "https://agritech.tnau.ac.in/horticulture/horti_spices_turmeric.html"
+        }
+      ],
+      "tamil": {
+        "disease_name": "ஆரோக்கியமான இலை (Healthy Leaf)",
+        "scientific_name": "பாதிப்பில்லை (Curcuma longa)",
+        "cause": "எந்தவித நோய் தொற்றும் கண்டறியப்படவில்லை. பயிர் ஆரோக்கியமாக உள்ளது.",
+        "symptoms": [
+          "இலை முழுவதும் சீரான பச்சை நிறத்துடன் காணப்படுகிறது",
+          "புள்ளிகள் அல்லது கருகிய பகுதிகள் ஏதுமில்லை"
+        ],
+        "solution": [
+          "1. மருந்துகள் தெளிக்கத் தேவையில்லை.",
+          "2. வழமையான பாசனம், களையெடுத்தல் மற்றும் சமச்சீர் உரமிடுதலை தொடரவும்."
+        ],
+        "prevention": [
+          "மழைக்காலங்களில் வாரம் ஒருமுறை இலைகளைத் தொடர்ந்து கண்காணிக்கவும்",
+          "வயல் வடிகால் வசதியை முறையாகப் பராமரிக்கவும்"
+        ]
+      }
+    },
+    "Healthy": {
+      "scientific_name": "Curcuma longa (Healthy foliage)",
+      "cause": "No pathological infection or biotic stress detected. Plant is photosynthesizing actively.",
+      "symptoms": [
+        "Uniform, vibrant green pigmentation across the leaf blade",
+        "Clean margins with no chlorosis, necrosis, or foliar spotting"
+      ],
+      "solution": [
+        "1. No curative action required.",
+        "2. Continue standard intercultural operations, weeding, and balanced NPK nutrition."
+      ],
+      "prevention": [
+        "Conduct weekly routine scouting, particularly after monsoon showers",
+        "Maintain clean bunds and proper furrow drainage"
+      ],
+      "yield_loss": null,
+      "sources": [
+        {
+          "title": "TNAU Agritech Portal - Turmeric Good Agricultural Practices",
+          "url": "https://agritech.tnau.ac.in/horticulture/horti_spices_turmeric.html"
+        }
+      ],
+      "tamil": {
+        "disease_name": "ஆரோக்கியமான இலை (Healthy Leaf)",
+        "scientific_name": "பாதிப்பில்லை (Curcuma longa)",
+        "cause": "எந்தவித நோய் தொற்றும் கண்டறியப்படவில்லை. பயிர் ஆரோக்கியமாக உள்ளது.",
+        "symptoms": [
+          "இலை முழுவதும் சீரான பச்சை நிறத்துடன் காணப்படுகிறது",
+          "புள்ளிகள் அல்லது கருகிய பகுதிகள் ஏதுமில்லை"
+        ],
+        "solution": [
+          "1. மருந்துகள் தெளிக்கத் தேவையில்லை.",
+          "2. வழமையான பாசனம், களையெடுத்தல் மற்றும் சமச்சீர் உரமிடுதலை தொடரவும்."
+        ],
+        "prevention": [
+          "மழைக்காலங்களில் வாரம் ஒருமுறை இலைகளைத் தொடர்ந்து கண்காணிக்கவும்",
+          "வயல் வடிகால் வசதியை முறையாகப் பராமரிக்கவும்"
+        ]
+      }
+    },
+    "Dry Leaf": {
+      "scientific_name": "Curcuma longa (Senescence / Desiccation)",
+      "cause": "Natural plant maturity prior to rhizome harvest, or advanced moisture stress and dry blighting.",
+      "symptoms": [
+        "Extensive yellowing and desiccation across the entire leaf blade",
+        "Brittle straw-colored foliage with collapsed vascular tissue"
+      ],
+      "solution": [
+        "1. Check harvest readiness (crop reaches maturity at 7–9 months when leaves turn dry and yellow).",
+        "2. If dry leaves appear prematurely before maturity, inspect rhizomes for moisture stress or basal rot."
+      ],
+      "prevention": [
+        "Ensure timely irrigation during rhizome development stage",
+        "Avoid severe drought stress during active growing phase"
+      ],
+      "yield_loss": null,
+      "sources": [
+        {
+          "title": "TNAU Agritech Portal - Turmeric Harvesting & Maturity",
+          "url": "https://agritech.tnau.ac.in/horticulture/horti_spices_turmeric.html"
+        }
+      ],
+      "tamil": {
+        "disease_name": "காய்ந்த இலை (Dry Leaf)",
+        "scientific_name": "முதிர்ச்சி / உலர் தன்மை (Senescence)",
+        "cause": "பயிர் முதிர்ச்சி அடைந்து அறுவடைக்கு தயாராதல் அல்லது கடும் வறட்சி மற்றும் பிந்தைய நிலை கருகல்.",
+        "symptoms": [
+          "இலை முழுவதும் பழுப்பு நிறமாகி உலர்ந்து காணப்படுதல்",
+          "இலைகள் நொறுங்கும் தன்மை கொண்டதாக மாறுதல்"
+        ],
+        "solution": [
+          "1. பயிரின் வயதை கணக்கிட்டு அறுவடை பருவத்தை சரிபார்க்கவும் (7-9 மாதங்கள்).",
+          "2. முதிர்ச்சிக்கு முன்பே இலைகள் காய்ந்தால் மண்ணில் ஈரப்பத குறைபாடு அல்லது கிழங்கு அழுகல் உள்ளதா என சோதிக்கவும்."
+        ],
+        "prevention": [
+          "கிழங்கு பெருக்கும் பருவத்தில் சீரான நீர்ப்பாசனம் வழங்குதல்",
+          "கடும் வறட்சி ஏற்படாமல் நிலத்தை ஈரப்பதத்துடன் பராமரித்தல்"
+        ]
+      }
+    },
+    "Aphids Disease": {
+      "scientific_name": "Aphis gossypii / Pentalonia nigronervosa",
+      "cause": "Small sap-sucking insects that colonize the tender shoots and lower leaf surfaces, particularly during dry, warm weather intervals.",
+      "symptoms": [
+        "Yellowing, crinkling, and upward curling of the leaf margins",
+        "Colonies of tiny dark or yellowish aphids visible on the underside of leaves",
+        "Sticky honeydew secretion encouraging black sooty mold growth"
+      ],
+      "solution": [
+        "1. Spray Neem oil (30 ml/litre of water) or fish oil rosin soap (25 g/litre) as an initial botanical deterrent.",
+        "2. In severe infestations, apply Dimethoate 30 EC (1.7 ml/litre) or Imidacloprid 17.8 SL (0.3 ml/litre) directed at the undersides of leaves (verify dose with TNAU or local agriculture officer).",
+        "3. Conserve natural predators such as Coccinellid ladybird beetles and hoverfly larvae."
+      ],
+      "prevention": [
+        "Inspect leaf undersides weekly, especially during dry spells following rain",
+        "Avoid excessive nitrogenous fertilizer application which fosters succulent foliage",
+        "Maintain clean field borders and eradicate alternative weed hosts"
+      ],
+      "yield_loss": "10% - 15% (Source: TNAU Crop Protection Guide - Turmeric Pests)",
+      "sources": [
+        {
+          "title": "TNAU Agritech Portal - Turmeric Sucking Pests Management",
+          "url": "https://agritech.tnau.ac.in/crop_protection/turmeric_pest.html"
+        },
+        {
+          "title": "ICAR-IISR Turmeric Plant Protection Guidelines",
+          "url": "https://spices.res.in"
+        }
+      ],
+      "tamil": {
+        "disease_name": "அசுவினிப் பூச்சி தாக்குதல் (Aphids Disease)",
+        "scientific_name": "ஏபிஸ் காசிபி / பென்டலோனியா நைக்ரோநெர்வோசா (Aphis gossypii)",
+        "cause": "இலையின் அடியில் தங்கி சாற்றை உறிஞ்சும் சிறு பூச்சிகள். வறண்ட வெப்பமான காலங்களில் பயிர்களில் வேகமாக பரவுகிறது.",
+        "symptoms": [
+          "இலைகள் மஞ்சள் நிறமடைந்து மேல்நோக்கி சுருண்டு போதல்",
+          "இலையின் அடியில் கூட்டமாக காணப்படும் அசுவினிப் பூச்சிகள்",
+          "பூச்சிகள் வெளியிடும் தேன் போன்ற திரவத்தால் கரும்பூஞ்சாணம் படர்தல்"
+        ],
+        "solution": [
+          "1. வேப்பெண்ணெய் கரைசல் (30 மி.லி/லிட்டர்) இலையின் அடிப்பகுதியில் நன்கு படும்படி தெளிக்கவும்.",
+          "2. தாக்குதல் தீவிரமடைந்தால் டைமெத்தோயேட் (1.7 மி.லி/லிட்டர்) அல்லது இமிடாக்ளோப்ரிட் (0.3 மி.லி/லிட்டர்) தெளிக்கவும் (வேளாண் அலுவலரிடம் உறுதிப்படுத்தவும்).",
+          "3. நன்மை செய்யும் பொறிவண்டுகளைப் பாதுகாத்தல்."
+        ],
+        "prevention": [
+          "இலைகளின் அடியில் வாரம் ஒருமுறை பூச்சி நடமாட்டத்தை ஆய்வு செய்தல்",
+          "அதிகப்படியான தழைச்சத்து உரங்களை தவிர்த்தல்",
+          "வயல் வரப்புகளில் உள்ள மாற்று களைச் செடிகளை அழித்தல்"
+        ]
+      }
+    },
+    "Rhizome Disease Root": {
+      "scientific_name": "Pythium aphanidermatum / Fusarium solani",
+      "cause": "A destructive soil-borne fungal/oomycete pathogen favored by water stagnation, excessive monsoon moisture, and poorly drained heavy soils.",
+      "symptoms": [
+        "Softening and brown water-soaked rotting of the rhizome tissue with a foul odor",
+        "Basal pseudo-stem becomes soft, spongy, and easily detaches when pulled",
+        "Progressive foliar chlorosis starting from lower leaves moving upwards, followed by wilting"
+      ],
+      "solution": [
+        "1. Drench soil around infected clumps with Metalaxyl + Mancozeb (Ridomil MZ @ 2.5 g/litre of water) or Copper Oxychloride (2.5 g/litre).",
+        "2. Apply antagonistic biocontrol agent Trichoderma viride (@ 2.5 kg/ha mixed with 100 kg decomposed farmyard manure) into plant furrows.",
+        "3. Immediately open drainage trenches across the plot to drain off stagnant irrigation or rainwater."
+      ],
+      "prevention": [
+        "Select disease-free certified mother and finger rhizomes for sowing",
+        "Treat seed rhizomes before planting by dipping in Metalaxyl-Mancozeb (2 g/L) for 30 minutes",
+        "Adopt broad-bed and furrow (BBF) or raised ridge planting system to avoid water stagnation",
+        "Practice 2-3 year crop rotation with non-host cereals (maize, sorghum, or paddy)"
+      ],
+      "yield_loss": "30% - 60% (Source: TNAU Agritech Portal & ICAR-IISR Turmeric Compendium)",
+      "sources": [
+        {
+          "title": "TNAU Agritech Portal - Turmeric Rhizome Rot (Soft Rot) Management",
+          "url": "https://agritech.tnau.ac.in/crop_protection/turmeric_diseases.html"
+        },
+        {
+          "title": "ICAR - Indian Institute of Spices Research (IISR) Pathology",
+          "url": "https://spices.res.in"
+        }
+      ],
+      "tamil": {
+        "disease_name": "கிழங்கு அழுகல் நோய் (Rhizome Rot / Disease)",
+        "scientific_name": "பைத்தியம் அபானிடெர்மேட்டம் / பியூசாரியம் (Pythium aphanidermatum)",
+        "cause": "மண்ணில் நீர் தேங்குதல் மற்றும் அதிக ஈரப்பதத்தால் ஏற்படும் தீவிர பூஞ்சாண நோய். வயலில் போதிய வடிகால் வசதி இல்லாத போது வேகமாகப் பரவுகிறது.",
+        "symptoms": [
+          "கிழங்குகள் அழுகி துர்நாற்றத்துடன் மிருதுவாக மாறுதல்",
+          "தண்டின் அடிப்பகுதி மென்மையாகி எளிதில் கையோடு பிடுங்க வரும் நிலை",
+          "அடிப்பகுதி இலைகள் முதலில் மஞ்சள் நிறமடைந்து தொடர்ந்து அனைத்து இலைகளும் வாடி வதங்குதல்"
+        ],
+        "solution": [
+          "1. மெட்டலாக்சில் + மான்கோசெப் (2.5 கிராம்/லிட்டர்) அல்லது காப்பர் ஆக்ஸிகுளோரைடு (2.5 கிராம்/லிட்டர்) கொண்டு செடியின் தூரைச் சுற்றி வேர் நனைய ஊற்றவும்.",
+          "2. டிரைக்கோடெர்மா விரிடி (2.5 கிலோ/ஹெக்டர்) மக்கிய தொழுவுரத்துடன் கலந்து செடிகளின் வேர் பகுதியில் இடுதல்.",
+          "3. வயலில் தேங்கியுள்ள உபரி நீரை உடனடியாக வடிய வைக்க வடிகால் வாய்க்கால்களை வெட்டுதல்."
+        ],
+        "prevention": [
+          "நோய் தாக்காத ஆரோக்கியமான சான்று பெற்ற விதை கிழங்குகளை தேர்வு செய்தல்",
+          "விதைப்பதற்கு முன் கிழங்குகளை மெட்டலாக்சில் கரைசலில் 30 நிமிடங்கள் ஊற வைத்து விதை நேர்த்தி செய்தல்",
+          "மேட்டுப்பாத்தி அமைத்து பாசனம் செய்து நீர் தேங்குவதை முற்றிலும் தடுத்தல்",
+          "மக்காச்சோளம் அல்லது தானியப் பயிர்களுடன் 2-3 ஆண்டுகள் பயிர் சுழற்சி செய்தல்"
+        ]
+      }
+    },
+    "Rhizome Rot": {
+      "scientific_name": "Pythium aphanidermatum / Fusarium solani",
+      "cause": "A destructive soil-borne fungal/oomycete pathogen favored by water stagnation, excessive monsoon moisture, and poorly drained heavy soils.",
+      "symptoms": [
+        "Softening and brown water-soaked rotting of the rhizome tissue with a foul odor",
+        "Basal pseudo-stem becomes soft, spongy, and easily detaches when pulled",
+        "Progressive foliar chlorosis starting from lower leaves moving upwards, followed by wilting"
+      ],
+      "solution": [
+        "1. Drench soil around infected clumps with Metalaxyl + Mancozeb (Ridomil MZ @ 2.5 g/litre of water) or Copper Oxychloride (2.5 g/litre).",
+        "2. Apply antagonistic biocontrol agent Trichoderma viride (@ 2.5 kg/ha mixed with 100 kg decomposed farmyard manure) into plant furrows.",
+        "3. Immediately open drainage trenches across the plot to drain off stagnant irrigation or rainwater."
+      ],
+      "prevention": [
+        "Select disease-free certified mother and finger rhizomes for sowing",
+        "Treat seed rhizomes before planting by dipping in Metalaxyl-Mancozeb (2 g/L) for 30 minutes",
+        "Adopt broad-bed and furrow (BBF) or raised ridge planting system to avoid water stagnation",
+        "Practice 2-3 year crop rotation with non-host cereals (maize, sorghum, or paddy)"
+      ],
+      "yield_loss": "30% - 60% (Source: TNAU Agritech Portal & ICAR-IISR Turmeric Compendium)",
+      "sources": [
+        {
+          "title": "TNAU Agritech Portal - Turmeric Rhizome Rot (Soft Rot) Management",
+          "url": "https://agritech.tnau.ac.in/crop_protection/turmeric_diseases.html"
+        },
+        {
+          "title": "ICAR - Indian Institute of Spices Research (IISR) Pathology",
+          "url": "https://spices.res.in"
+        }
+      ],
+      "tamil": {
+        "disease_name": "கிழங்கு அழுகல் நோய் (Rhizome Rot)",
+        "scientific_name": "பைத்தியம் அபானிடெர்மேட்டம் / பியூசாரியம் (Pythium aphanidermatum)",
+        "cause": "மண்ணில் நீர் தேங்குதல் மற்றும் அதிக ஈரப்பதத்தால் ஏற்படும் தீவிர பூஞ்சாண நோய்.",
+        "symptoms": [
+          "கிழங்குகள் அழுகி துர்நாற்றத்துடன் மிருதுவாக மாறுதல்",
+          "தண்டின் அடிப்பகுதி மென்மையாகி எளிதில் கையோடு பிடுங்க வருதல்",
+          "இலைகள் படிப்படியாக மஞ்சள் நிறமடைந்து வாடுதல்"
+        ],
+        "solution": [
+          "1. மெட்டலாக்சில் + மான்கோசெப் (2.5 கிராம்/லிட்டர்) கொண்டு வேர் நனைய ஊற்றவும்.",
+          "2. டிரைக்கோடெர்மா விரிடி உயிர் உரமிடுதல்.",
+          "3. வயல் வடிகால் வசதியை உடனடியாக மேம்படுத்துதல்."
+        ],
+        "prevention": [
+          "சான்று பெற்ற ஆரோக்கியமான விதை கிழங்குகள் பயன்பாடு",
+          "விதை நேர்த்தி செய்தல்",
+          "மேட்டுப்பாத்தி சாகுபடி முறை"
+        ]
+      }
+    },
+    "Rhizome Healthy Root": {
+      "scientific_name": "Curcuma longa (Healthy Rhizome)",
+      "cause": "No subterranean fungal, bacterial, or nematode infestation detected. Rhizome flesh is firm with intact epidermis.",
+      "symptoms": [
+        "Firm finger and mother rhizomes with vibrant saffron-yellow internal flesh",
+        "Intact outer skin free of lesions, wet decay, or foul fermentation odor"
+      ],
+      "solution": [
+        "1. Specimen is healthy; no curative chemicals required.",
+        "2. For seed storage, preserve in well-aerated sand pits shaded under tree canopies."
+      ],
+      "prevention": [
+        "Dust stored seed rhizomes with bio-agents before planting season",
+        "Keep storage areas dry, cool, and well-ventilated"
+      ],
+      "yield_loss": null,
+      "sources": [
+        {
+          "title": "TNAU Agritech Portal - Turmeric Seed Rhizome Quality Guidelines",
+          "url": "https://agritech.tnau.ac.in/horticulture/horti_spices_turmeric.html"
+        }
+      ],
+      "tamil": {
+        "disease_name": "ஆரோக்கியமான கிழங்கு (Healthy Rhizome)",
+        "scientific_name": "பாதிப்பில்லை (Curcuma longa)",
+        "cause": "எந்தவித கிழங்கு அழுகல் நோய்த் தொற்றும் இல்லை. கிழங்கு ஆரோக்கியமாக உள்ளது.",
+        "symptoms": [
+          "உறுதியான, நல்ல மஞ்சள் நிற சதைப்பற்றுடன் கூடிய கிழங்கு",
+          "அழுகல் அல்லது துர்நாற்றம் ஏதுமில்லை"
+        ],
+        "solution": [
+          "1. மருந்துகள் தேவையில்லை.",
+          "2. விதை கிழங்குகளை நிழலான மணல் படுக்கைகளில் முறையாக சேமிக்கவும்."
+        ],
+        "prevention": [
+          "விதை சேமிப்பு கிடங்குகளில் நல்ல காற்றோட்டத்தை பராமரித்தல்"
+        ]
+      }
+    },
+    "Bacterial Wilt": {
+      "scientific_name": "Ralstonia solanacearum",
+      "cause": "A vascular bacterial pathogen entering through root wounds, favored by soil temperatures above 28°C and high soil moisture.",
+      "symptoms": [
+        "Rapid flaccid drooping and sudden wilting of the foliage while still retaining green color",
+        "Dark vascular browning observable when the pseudo-stem or rhizome is cut crosswise",
+        "Milky white bacterial ooze streams from cut vascular bundles immersed in clear water"
+      ],
+      "solution": [
+        "1. Uproot and burn wilted plants along with surrounding soil to prevent patch spread.",
+        "2. Drench root zones of neighboring healthy plants with Copper Oxychloride (2.5 g/L) + Streptocycline (0.2 g/L) (verify with agriculture officer).",
+        "3. Avoid flood irrigation from infected areas to healthy field sections."
+      ],
+      "prevention": [
+        "Dip seed rhizomes in Streptocycline (200 ppm) solution for 30 minutes before planting",
+        "Solarize planting beds using transparent polythene mulch during peak summer",
+        "Apply bleaching powder (@ 20 kg/ha) in irrigation furrows during land preparation"
+      ],
+      "yield_loss": "25% - 50% (Source: TNAU & ICAR-IISR Turmeric Disease Advisory)",
+      "sources": [
+        {
+          "title": "TNAU Agritech Portal - Bacterial Wilt Management",
+          "url": "https://agritech.tnau.ac.in/crop_protection/turmeric_diseases.html"
+        }
+      ],
+      "tamil": {
+        "disease_name": "பாக்டீரியா வாடல் நோய் (Bacterial Wilt)",
+        "scientific_name": "ரால்ஸ்டோனியா சொலானசீரம் (Ralstonia solanacearum)",
+        "cause": "மண்ணில் உள்ள பாக்டீரியா வேர் காயங்கள் வழியாக உட்சென்று தண்டு நாளங்களை அடைப்பதால் ஏற்படும் தீவிர வாடல் நோய்.",
+        "symptoms": [
+          "இலைகள் பச்சையாக இருக்கும் போதே திடீரென வாடி தொங்குதல்",
+          "தண்டின் உள்பகுதியில் பழுப்பு நிற நாளங்கள் தென்படுதல்",
+          "வெட்டிய தண்டுப் பகுதியை நீரில் வைத்தால் பால் போன்ற பாக்டீரியா திரவம் வெளியேறுதல்"
+        ],
+        "solution": [
+          "1. பாதிக்கப்பட்ட செடிகளை வேருடன் பிடுங்கி அப்புறப்படுத்தி எரிக்கவும்.",
+          "2. சுற்றியுள்ள ஆரோக்கியமான செடிகளுக்கு காப்பர் ஆக்ஸிகுளோரைடு (2.5 கிராம்/லி) + ஸ்ட்ரெப்டோமைசின் (0.2 கிராம்/லி) கலந்து வேர் நனைய ஊற்றவும்.",
+          "3. பாய்ச்சல் நீர் மூலம் நோய் பரவாமல் தடுக்க பாசன அமைப்பை சீரமைத்தல்."
+        ],
+        "prevention": [
+          "விதை கிழங்குகளை ஸ்ட்ரெப்டோமைசின் கரைசலில் நனைத்து விதை நேர்த்தி செய்தல்",
+          "கோடையில் நிலத்தை ஆழமாக உழுது சூரிய வெப்பமூட்டுதல்",
+          "கடைசி உழவின் போது பிளீச்சிங் பவுடர் (20 கிலோ/ஹெக்டர்) இடுதல்"
+        ]
+      }
+    }
+  }
+}
+

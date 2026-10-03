@@ -1,0 +1,233 @@
+[
+  {
+    "id": "AV-3652",
+    "disease": "Healthy Leaf",
+    "scientific_name": "Curcuma longa (Healthy foliage)",
+    "confidence": 88.3,
+    "severity": "Healthy",
+    "infected_area_pct": 0.0,
+    "yield_loss": null,
+    "date": "Oct 03, 2026 • 08:12 PM",
+    "image_url": "/static/uploads/c67b2c5238cb.jpg"
+  },
+  {
+    "id": "AV-9574",
+    "disease": "Leaf Blotch",
+    "scientific_name": "Taphrina maculans",
+    "confidence": 100.0,
+    "severity": "Severe",
+    "infected_area_pct": 31.2,
+    "yield_loss": "10% - 20% (Source: TNAU Agritech Portal & Department of Agriculture, Tamil Nadu)",
+    "date": "Oct 03, 2026 • 06:43 PM",
+    "image_url": "/static/uploads/c14bcc40a8d9.jpeg"
+  },
+  {
+    "id": "AV-6667",
+    "disease": "Leaf Blotch",
+    "scientific_name": "Taphrina maculans",
+    "confidence": 75.0,
+    "severity": "Mild",
+    "infected_area_pct": 0.5,
+    "yield_loss": "10% - 20% (Source: TNAU Agritech Portal & Department of Agriculture, Tamil Nadu)",
+    "date": "Oct 03, 2026 • 06:43 PM",
+    "image_url": "/static/uploads/03939a9d4c95.jpg"
+  },
+  {
+    "id": "AV-4903",
+    "disease": "Rhizome Healthy Root",
+    "scientific_name": "Curcuma longa (Healthy Rhizome)",
+    "confidence": 100.0,
+    "severity": "Healthy",
+    "infected_area_pct": 0.0,
+    "yield_loss": null,
+    "date": "Oct 03, 2026 • 06:42 PM",
+    "image_url": "/static/uploads/7f1034cf47ac.jpg"
+  },
+  {
+    "id": "AV-4108",
+    "disease": "Healthy Leaf",
+    "scientific_name": "Curcuma longa (Healthy foliage)",
+    "confidence": 100.0,
+    "severity": "Healthy",
+    "infected_area_pct": 0.0,
+    "yield_loss": null,
+    "date": "Oct 03, 2026 • 06:41 PM",
+    "image_url": "/static/uploads/8703eb345129.jpg"
+  },
+  {
+    "id": "AV-3848",
+    "disease": "Rhizome Disease Root",
+    "scientific_name": "Pythium aphanidermatum / Fusarium solani",
+    "confidence": 100.0,
+    "severity": "Severe",
+    "infected_area_pct": 94.7,
+    "yield_loss": "30% - 60% (Source: TNAU Agritech Portal & ICAR-IISR Turmeric Compendium)",
+    "date": "Oct 03, 2026 • 06:41 PM",
+    "image_url": "/static/uploads/6621723b3818.jpg"
+  },
+  {
+    "id": "AV-7910",
+    "disease": "Dry Leaf",
+    "scientific_name": "Curcuma longa (Senescence / Desiccation)",
+    "confidence": 100.0,
+    "severity": "Severe",
+    "infected_area_pct": 51.0,
+    "yield_loss": null,
+    "date": "Oct 03, 2026 • 06:41 PM",
+    "image_url": "/static/uploads/68b1d1425e04.jpg"
+  },
+  {
+    "id": "AV-6221",
+    "disease": "Leaf Blotch",
+    "scientific_name": "Taphrina maculans",
+    "confidence": 99.9,
+    "severity": "Severe",
+    "infected_area_pct": 62.8,
+    "yield_loss": "10% - 20% (Source: TNAU Agritech Portal & Department of Agriculture, Tamil Nadu)",
+    "date": "Oct 03, 2026 • 06:41 PM",
+    "image_url": "/static/uploads/5fce04425e00.jpg"
+  },
+  {
+    "id": "AV-5026",
+    "disease": "Leaf Spot",
+    "scientific_name": "Colletotrichum capsici",
+    "confidence": 98.3,
+    "severity": "Mild",
+    "infected_area_pct": 8.4,
+    "yield_loss": "15% - 25% (Source: TNAU Agritech Portal & ICAR-IISR Turmeric Disease Compendium)",
+    "date": "Oct 03, 2026 • 06:41 PM",
+    "image_url": "/static/uploads/a297f34a8d4a.jpg"
+  },
+  {
+    "id": "AV-7720",
+    "disease": "Aphids Disease",
+    "scientific_name": "Aphis gossypii / Pentalonia nigronervosa",
+    "confidence": 100.0,
+    "severity": "Mild",
+    "infected_area_pct": 5.2,
+    "yield_loss": "10% - 15% (Source: TNAU Crop Protection Guide - Turmeric Pests)",
+    "date": "Oct 03, 2026 • 06:41 PM",
+    "image_url": "/static/uploads/e9684e8c972b.jpg"
+  },
+  {
+    "id": "AV-9633",
+    "disease": "Leaf Blotch",
+    "scientific_name": "Taphrina maculans",
+    "confidence": 100.0,
+    "severity": "Severe",
+    "infected_area_pct": 54.8,
+    "yield_loss": "10% - 20% (Source: TNAU Agritech Portal & Department of Agriculture, Tamil Nadu)",
+    "date": "Oct 03, 2026 • 06:38 PM",
+    "image_url": "/static/uploads/b97933fb8696.jpg"
+  },
+  {
+    "id": "AV-4178",
+    "disease": "Rhizome Disease Root",
+    "scientific_name": "Pythium aphanidermatum / Fusarium solani",
+    "confidence": 100.0,
+    "severity": "Severe",
+    "infected_area_pct": 94.7,
+    "yield_loss": "30% - 60% (Source: TNAU Agritech Portal & ICAR-IISR Turmeric Compendium)",
+    "date": "Oct 03, 2026 • 06:38 PM",
+    "image_url": "/static/uploads/b2b56de322fe.jpg"
+  },
+  {
+    "id": "AV-4357",
+    "disease": "Leaf Blotch",
+    "scientific_name": "Taphrina maculans",
+    "confidence": 75.0,
+    "severity": "Mild",
+    "infected_area_pct": 0.5,
+    "yield_loss": "10% - 20% (Source: TNAU Agritech Portal & Department of Agriculture, Tamil Nadu)",
+    "date": "Oct 03, 2026 • 06:29 PM",
+    "image_url": "/static/uploads/89c95c8a953f.jpg"
+  },
+  {
+    "id": "AV-8454",
+    "disease": "Leaf Blotch",
+    "scientific_name": "Taphrina maculans",
+    "confidence": 100.0,
+    "severity": "Severe",
+    "infected_area_pct": 31.2,
+    "yield_loss": "10% - 20% (Source: TNAU Agritech Portal & Department of Agriculture, Tamil Nadu)",
+    "date": "Oct 03, 2026 • 06:27 PM",
+    "image_url": "/static/uploads/f9dad2449397.jpeg"
+  },
+  {
+    "id": "AV-7321",
+    "disease": "Healthy Leaf",
+    "scientific_name": "Curcuma longa (Healthy foliage)",
+    "confidence": 99.6,
+    "severity": "Healthy",
+    "infected_area_pct": 0.0,
+    "yield_loss": null,
+    "date": "Oct 03, 2026 • 06:26 PM",
+    "image_url": "/static/uploads/12c44d24be24.jpeg"
+  },
+  {
+    "id": "AV-9846",
+    "disease": "Leaf Blotch",
+    "scientific_name": "Taphrina maculans",
+    "confidence": 100.0,
+    "severity": "Moderate",
+    "infected_area_pct": 16.4,
+    "yield_loss": "10% - 20% (Source: TNAU Agritech Portal & Department of Agriculture, Tamil Nadu)",
+    "date": "Oct 03, 2026 • 06:06 PM",
+    "image_url": "/static/uploads/53097deb4985.jpg"
+  },
+  {
+    "id": "AV-6777",
+    "disease": "Leaf Blotch",
+    "scientific_name": "Taphrina maculans",
+    "confidence": 100.0,
+    "severity": "Moderate",
+    "infected_area_pct": 16.4,
+    "yield_loss": "10% - 20% (Source: TNAU Agritech Portal & Department of Agriculture, Tamil Nadu)",
+    "date": "Oct 03, 2026 • 06:05 PM",
+    "image_url": "/static/uploads/21bc6a670add.jpg"
+  },
+  {
+    "id": "AV-3189",
+    "disease": "Leaf Blotch",
+    "scientific_name": "Taphrina maculans",
+    "confidence": 100.0,
+    "severity": "Moderate",
+    "infected_area_pct": 28.4,
+    "yield_loss": "10% - 20% (Source: TNAU Agritech Portal & Department of Agriculture, Tamil Nadu)",
+    "date": "Oct 03, 2026 • 06:05 PM",
+    "image_url": "/static/uploads/eb6e1c54dd03.jpg"
+  },
+  {
+    "id": "AV-3086",
+    "disease": "Leaf Blotch",
+    "scientific_name": "Taphrina maculans",
+    "confidence": 99.3,
+    "severity": "Moderate",
+    "infected_area_pct": 22.5,
+    "yield_loss": "10% - 20% (Source: TNAU Agritech Portal & Department of Agriculture, Tamil Nadu)",
+    "date": "Oct 03, 2026 • 06:04 PM",
+    "image_url": "/static/uploads/55fa71ae6aa2.jpg"
+  },
+  {
+    "id": "AV-5977",
+    "disease": "Healthy Leaf",
+    "scientific_name": "Curcuma longa (Healthy foliage)",
+    "confidence": 100.0,
+    "severity": "Healthy",
+    "infected_area_pct": 0.0,
+    "yield_loss": null,
+    "date": "Oct 03, 2026 • 06:03 PM",
+    "image_url": "/static/uploads/fde7363a2f41.jpg"
+  },
+  {
+    "id": "AV-2385",
+    "disease": "Leaf Spot",
+    "scientific_name": "Colletotrichum capsici",
+    "confidence": 98.3,
+    "severity": "Mild",
+    "infected_area_pct": 8.4,
+    "yield_loss": "15% - 25% (Source: TNAU Agritech Portal & ICAR-IISR Turmeric Disease Compendium)",
+    "date": "Oct 03, 2026 • 06:01 PM",
+    "image_url": "/static/uploads/3e07b26bdbc9.jpg"
+  }
+]
